@@ -2,6 +2,8 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface MarkdownRendererProps {
   content: string;
@@ -47,18 +49,32 @@ export default function MarkdownRenderer({
           li: ({ node, ...props }) => (
             <li className="text-text-primary" {...props} />
           ),
-          code: ({ node, ...props }) => (
-            <code
-              className="bg-surface px-1.5 py-0.5 rounded text-primary-accent font-mono text-sm"
-              {...props}
-            />
-          ),
-          pre: ({ node, ...props }) => (
-            <pre
-              className="bg-surface p-4 rounded-xl overflow-x-auto mb-4 border border-[#3a3a3a]"
-              {...props}
-            />
-          ),
+          code({ node, inline, className, children, ...props }: any) {
+            const match = /language-(\w+)/.exec(className || "");
+            return !inline && match ? (
+              <SyntaxHighlighter
+                style={oneDark}
+                language={match[1]}
+                PreTag="div"
+                className="rounded-xl mb-4 border border-[#3a3a3a]"
+                customStyle={{
+                  margin: 0,
+                  padding: "1rem",
+                  background: "#1a1a1a",
+                }}
+                {...props}
+              >
+                {String(children).replace(/\n$/, "")}
+              </SyntaxHighlighter>
+            ) : (
+              <code
+                className="bg-surface px-1.5 py-0.5 rounded text-primary-accent font-mono text-sm"
+                {...props}
+              >
+                {children}
+              </code>
+            );
+          },
           blockquote: ({ node, ...props }) => (
             <blockquote
               className="border-l-4 border-primary-accent pl-4 italic my-4 text-text-secondary"

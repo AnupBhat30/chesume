@@ -61,8 +61,9 @@ export default function PreGenerationPhase({
             Upload your resume to begin
           </h1>
           <p className="text-text-secondary text-lg">
-            We&apos;ll analyze your experience and prepare personalized
-            questions.
+            {
+              "We'll analyze your experience and prepare personalized questions."
+            }
           </p>
 
           <label
@@ -122,7 +123,7 @@ export default function PreGenerationPhase({
               Ready to see what interviewers will actually ask?
             </h2>
             <p className="text-text-secondary">
-              We&apos;ve analyzed your resume. Here&apos;s what we found:
+              {"We've analyzed your resume. Here's what we found:"}
             </p>
           </div>
 
@@ -166,7 +167,7 @@ export default function PreGenerationPhase({
           <div className="bg-amber-500/10 border border-amber-500/20 p-4 rounded-lg flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
             <p className="text-amber-200 text-sm">
-              ⚠️ These aren&apos;t softball questions. We&apos;ve identified{" "}
+              {"⚠️ These aren't softball questions. We've identified "}
               {analysis.claimsToVerify} specific claims that need deep
               verification.
             </p>

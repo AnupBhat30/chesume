@@ -55,8 +55,8 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-32 pb-20 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-grid -z-10 mask-[radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(32,184,205,0.15),transparent_50%)] -z-10" />
+      <div className="absolute inset-0 bg-grid -z-10 mask-[radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-20" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(38,139,210,0.15),transparent_50%)] -z-10" />
 
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-7 text-left">
@@ -65,16 +65,18 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary-accent text-xs font-medium mb-8 tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary-accent text-xs font-medium mb-8 tracking-wide uppercase border-primary-accent/20">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>AI-Powered Interview Intelligence</span>
+              <span>100% Open Source & Free Forever</span>
             </div>
 
             <h1 className="text-6xl lg:text-8xl font-bold tracking-tight mb-8 leading-[0.95]">
-              <span className="text-gradient">Stop Faking It.</span>
+              <span className="text-gradient from-[#268bd2] to-[#2aa198]">
+                Master Your
+              </span>
               <br />
               <span className="text-primary-accent relative">
-                Start Proving It.
+                Interview.
                 <svg
                   className="absolute -bottom-2 left-0 w-full h-3 text-primary-accent/30"
                   viewBox="0 0 100 10"
@@ -91,19 +93,15 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl text-text-secondary leading-relaxed mb-12 max-w-2xl">
-              Your resume says{" "}
+              Chesume is a community-driven platform to help you crush technical
+              interviews.
               <span className="text-text-primary font-medium">
-                &quot;React Expert.&quot;
+                {" No paywalls. No subscriptions."}
               </span>{" "}
-              Can you explain{" "}
-              <code className="text-primary-accent bg-primary-accent/10 px-1.5 py-0.5 rounded">
-                useCallback
-              </code>{" "}
-              vs{" "}
-              <code className="text-primary-accent bg-primary-accent/10 px-1.5 py-0.5 rounded">
-                useMemo
-              </code>{" "}
-              under pressure? We&apos;ll find out.
+              Master the{" "}
+              <span className="text-warning font-bold">Golden 20 Patterns</span>{" "}
+              and <span className="text-success font-bold">80+ Questions</span>{" "}
+              to unlock your potential.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 mb-8">
@@ -113,9 +111,11 @@ export default function Hero() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
-              <button className="h-14 px-8 rounded-full glass text-text-primary font-semibold text-lg hover:bg-white/5 transition-all">
-                See Example Questions
-              </button>
+              <Link href="/blog">
+                <button className="h-14 px-8 rounded-full glass text-text-primary font-semibold text-lg hover:bg-white/5 transition-all w-full sm:w-auto">
+                  80+ Interview Questions
+                </button>
+              </Link>
             </div>
 
             <div className="space-y-4">
@@ -219,7 +219,7 @@ export default function Hero() {
                     Claim Detected
                   </div>
                   <div className="text-sm text-text-primary italic">
-                    &quot;Optimized API latency by 40% using Redis caching&quot;
+                    {'"Optimized API latency by 40% using Redis caching"'}
                   </div>
                 </motion.div>
 
@@ -233,8 +233,9 @@ export default function Hero() {
                     Generating Probe
                   </div>
                   <div className="text-sm text-text-primary">
-                    &quot;Walk me through the cache invalidation strategy you
-                    used. How did you handle race conditions?&quot;
+                    {
+                      '"Walk me through the cache invalidation strategy you used. How did you handle race conditions?"'
+                    }
                   </div>
                 </motion.div>
               </div>

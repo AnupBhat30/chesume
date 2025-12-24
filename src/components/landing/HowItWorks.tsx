@@ -50,8 +50,7 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             className="text-4xl lg:text-6xl font-bold text-text-primary mb-6 tracking-tight"
           >
-            4 Minutes to{" "}
-            <span className="text-primary-accent">Brutal Clarity.</span>
+            Mastery in <span className="text-primary-accent">4 Minutes.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -60,8 +59,8 @@ export default function HowItWorks() {
             transition={{ delay: 0.1 }}
             className="text-xl text-text-secondary max-w-2xl mx-auto"
           >
-            Our process is designed for speed and maximum impact. No fluff, just
-            the questions that matter.
+            Our AI-driven process identifies your unique technical gaps and
+            provides the exact resources to bridge them.
           </motion.p>
         </div>
 

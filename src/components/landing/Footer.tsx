@@ -25,31 +25,31 @@ export default function Footer() {
 
           <div className="md:col-span-2 md:col-start-7">
             <h4 className="text-text-primary font-bold mb-8 uppercase tracking-widest text-xs">
-              Product
+              Resources
             </h4>
             <ul className="space-y-4 text-text-muted font-medium">
               <li>
                 <a
-                  href="#"
+                  href="/blog"
                   className="hover:text-primary-accent transition-colors"
                 >
-                  How it Works
+                  Interview Blog
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/blog/golden-20"
                   className="hover:text-primary-accent transition-colors"
                 >
-                  Pricing
+                  Golden 20 Patterns
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/blog/puzzles"
                   className="hover:text-primary-accent transition-colors"
                 >
-                  Sample Questions
+                  Interview Puzzles
                 </a>
               </li>
             </ul>
@@ -57,15 +57,15 @@ export default function Footer() {
 
           <div className="md:col-span-2">
             <h4 className="text-text-primary font-bold mb-8 uppercase tracking-widest text-xs">
-              Company
+              Community
             </h4>
             <ul className="space-y-4 text-text-muted font-medium">
               <li>
                 <a
-                  href="#"
+                  href="https://github.com"
                   className="hover:text-primary-accent transition-colors"
                 >
-                  About Us
+                  GitHub
                 </a>
               </li>
               <li>
@@ -73,7 +73,7 @@ export default function Footer() {
                   href="#"
                   className="hover:text-primary-accent transition-colors"
                 >
-                  Blog
+                  Open Source
                 </a>
               </li>
               <li>
@@ -81,7 +81,7 @@ export default function Footer() {
                   href="#"
                   className="hover:text-primary-accent transition-colors"
                 >
-                  Careers
+                  Contributors
                 </a>
               </li>
             </ul>

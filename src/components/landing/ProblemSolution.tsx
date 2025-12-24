@@ -7,20 +7,20 @@ const problems = [
   {
     title: "Memorizing LeetCode",
     description:
-      "Interviewers smell rehearsed answers. They&apos;ll ask follow-ups about YOUR projects, not generic algorithms.",
-    icon: <AlertCircle className="w-5 h-5 text-red-500" />,
+      "Interviewers smell rehearsed answers. They'll ask follow-ups about YOUR projects, not generic algorithms.",
+    icon: <AlertCircle className="w-5 h-5 text-orange-500" />,
   },
   {
     title: "Mock Interviews with Friends",
     description:
-      "They won&apos;t probe exaggerated claims on your resume. We will. Expect questions like: &apos;Explain the exact DB optimization you did.&apos;",
-    icon: <AlertCircle className="w-5 h-5 text-red-500" />,
+      "They won't probe exaggerated claims on your resume. We will. Expect questions like: 'Explain the exact DB optimization you did.'",
+    icon: <AlertCircle className="w-5 h-5 text-orange-500" />,
   },
   {
     title: "Expensive Coaching ($200+/hr)",
     description:
-      "Same generic playbook for everyone. Our AI reads YOUR resume, YOUR projects, YOUR tech stack.",
-    icon: <AlertCircle className="w-5 h-5 text-red-500" />,
+      "Same generic playbook for everyone. Chesume is 100% free and open-source, giving you high-end AI analysis without the price tag.",
+    icon: <AlertCircle className="w-5 h-5 text-orange-500" />,
   },
 ];
 
@@ -36,7 +36,7 @@ export default function ProblemSolution() {
             className="text-4xl lg:text-6xl font-bold text-text-primary mb-6 tracking-tight"
           >
             Generic Prep{" "}
-            <span className="text-text-muted">Won&apos;t Cut It.</span>
+            <span className="text-text-muted">{"Won't Cut It."}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -45,8 +45,9 @@ export default function ProblemSolution() {
             transition={{ delay: 0.1 }}
             className="text-xl text-text-secondary max-w-2xl mx-auto"
           >
-            Here&apos;s why you&apos;re still failing the technical rounds
-            despite months of preparation.
+            {
+              "Here's why you're still failing the technical rounds despite months of preparation."
+            }
           </motion.p>
         </div>
 
@@ -58,11 +59,11 @@ export default function ProblemSolution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group p-8 rounded-3xl bg-surface border border-white/5 hover:border-red-500/30 transition-all duration-500 relative overflow-hidden"
+              className="group p-8 rounded-3xl bg-surface border border-white/5 hover:border-orange-500/30 transition-all duration-500 relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 blur-[60px] rounded-full -z-10 group-hover:bg-red-500/10 transition-colors" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 blur-[60px] rounded-full -z-10 group-hover:bg-orange-500/10 transition-colors" />
 
-              <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center mb-8">
+              <div className="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center mb-8">
                 {problem.icon}
               </div>
               <h3 className="text-2xl font-bold text-text-primary mb-4 tracking-tight">
@@ -90,12 +91,12 @@ export default function ProblemSolution() {
                 The Chesume Solution
               </div>
               <h3 className="text-3xl lg:text-4xl font-bold text-text-primary mb-6 tracking-tight">
-                AI-Driven Precision Prep
+                Mastery-Based Preparation
               </h3>
               <p className="text-xl text-text-secondary leading-relaxed max-w-2xl">
-                We use advanced LLMs to cross-reference your resume against
-                industry standards and generate the exact &quot;brutal&quot;
-                questions you&apos;ll face. No more generic advice.
+                {
+                  "We combine AI-powered resume analysis with a curated curriculum of patterns and puzzles. You don't just prepare for one interview; you master the skills for every interview."
+                }
               </p>
             </div>
             <button className="px-10 py-5 rounded-full bg-primary-accent text-background font-bold text-lg hover:bg-primary-hover transition-all shadow-glow hover:shadow-glow-strong whitespace-nowrap">

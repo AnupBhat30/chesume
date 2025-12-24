@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   ArrowRight,
   ShieldCheck,
@@ -26,20 +27,22 @@ export default function FinalCTA() {
           </div>
 
           <h2 className="text-5xl lg:text-7xl font-bold text-text-primary mb-10 tracking-tight leading-[1.1]">
-            The Interview is Tuesday.
+            Stop Guessing.
             <br />
-            <span className="text-primary-accent">Start Prepping Now.</span>
+            <span className="text-primary-accent">Start Mastering.</span>
           </h2>
 
           <div className="flex flex-col items-center gap-8">
-            <button className="group h-20 px-12 rounded-full bg-primary-accent hover:bg-primary-hover text-background font-bold text-2xl flex items-center gap-4 transition-all transform hover:scale-[1.05] shadow-glow hover:shadow-glow-strong">
-              Generate My Questions
-              <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
-            </button>
+            <Link href="/generate">
+              <button className="group h-20 px-12 rounded-full bg-primary-accent hover:bg-primary-hover text-background font-bold text-2xl flex items-center gap-4 transition-all transform hover:scale-[1.05] shadow-glow hover:shadow-glow-strong">
+                Master Your Resume
+                <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </Link>
 
             <p className="text-text-secondary text-xl font-medium">
-              No account needed. Results in{" "}
-              <span className="text-text-primary">4 minutes.</span>
+              Join the community.{" "}
+              <span className="text-text-primary">100% Free.</span>
             </p>
           </div>
 
@@ -49,7 +52,7 @@ export default function FinalCTA() {
                 <ShieldCheck className="w-6 h-6 text-success" />
               </div>
               <span className="text-text-muted font-medium">
-                Secured by Stripe
+                100% Free & Open Source
               </span>
             </div>
             <div className="flex flex-col items-center gap-4">
@@ -57,7 +60,7 @@ export default function FinalCTA() {
                 <Zap className="w-6 h-6 text-warning" />
               </div>
               <span className="text-text-muted font-medium">
-                Instant Delivery
+                Community Driven
               </span>
             </div>
             <div className="flex flex-col items-center gap-4">
@@ -65,7 +68,7 @@ export default function FinalCTA() {
                 <RefreshCcw className="w-6 h-6 text-primary-accent" />
               </div>
               <span className="text-text-muted font-medium">
-                Money-back Guarantee
+                Regularly Updated
               </span>
             </div>
           </div>

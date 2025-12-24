@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Code, Briefcase, Lightbulb } from "lucide-react";
+import Link from "next/link";
 
 const categories = [
   {
@@ -60,8 +61,8 @@ export default function QuestionCategories() {
             viewport={{ once: true }}
             className="text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight"
           >
-            Sample Questions{" "}
-            <span className="text-text-muted">You&apos;ll Face</span>
+            Master the{" "}
+            <span className="text-text-muted">{"Core Concepts"}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -70,8 +71,9 @@ export default function QuestionCategories() {
             transition={{ delay: 0.1 }}
             className="text-xl text-text-secondary max-w-2xl mx-auto"
           >
-            We generate specific, high-impact questions tailored to your actual
-            experience.
+            We don&apos;t just show you questions; we show you the{" "}
+            <span className="text-primary-accent font-bold">patterns</span> that
+            interviewers use to test your depth.
           </motion.p>
         </div>
 
@@ -119,19 +121,37 @@ export default function QuestionCategories() {
                         {i + 1}
                       </div>
                       <p className="text-text-primary text-xl leading-relaxed font-medium italic">
-                        &quot;{q}&quot;
+                        {'"'}
+                        {q}
+                        {'"'}
                       </p>
                     </motion.div>
                   ))}
               </motion.div>
             </AnimatePresence>
 
-            {/* Decorative element */}
             <div className="absolute bottom-0 right-0 p-10 opacity-5">
               <MessageSquare className="w-32 h-32 text-primary-accent" />
             </div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <p className="text-text-muted text-sm">
+            Looking for basic coding interview questions?{" "}
+            <Link
+              href="/blog"
+              className="text-primary-accent hover:underline font-medium"
+            >
+              Check out our 80+ Question Series →
+            </Link>
+          </p>
+        </motion.div>
       </div>
     </section>
   );

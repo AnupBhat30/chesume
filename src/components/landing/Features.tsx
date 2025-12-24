@@ -14,7 +14,7 @@ const features = [
   {
     title: "Technical Depth Probing",
     description:
-      "Tests if you actually wrote that &apos;scalable microservice&apos; or just copy-pasted from Stack Overflow.",
+      "Tests if you actually wrote that 'scalable microservice' or just copy-pasted from Stack Overflow.",
     icon: <Code2 className="w-6 h-6" />,
     className: "lg:col-span-2 lg:row-span-2",
     visual: (
@@ -34,7 +34,7 @@ const features = [
   {
     title: "Project Deep Dives",
     description:
-      "Questions like: &apos;Walk me through your PR #47. Why that approach?&apos;",
+      "Questions like: 'Walk me through your PR #47. Why that approach?'",
     icon: <GitBranch className="w-6 h-6" />,
     className: "lg:col-span-1 lg:row-span-1",
   },
@@ -77,9 +77,9 @@ export default function Features() {
             viewport={{ once: true }}
             className="text-4xl lg:text-6xl font-bold text-text-primary mb-6 tracking-tight"
           >
-            Not Just Questions.
+            Master the <span className="text-primary-accent">Patterns</span>.
             <br />
-            <span className="text-text-muted">A Complete Panic Test.</span>
+            <span className="text-text-muted">Crush the Interview.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -88,8 +88,9 @@ export default function Features() {
             transition={{ delay: 0.1 }}
             className="text-xl text-text-secondary max-w-2xl mx-auto"
           >
-            Built by engineers who&apos;ve bombed interviews. We know exactly
-            where the traps are hidden.
+            {
+              "We don't just give you questions. We give you the mental models to solve any problem thrown your way."
+            }
           </motion.p>
         </div>
 
