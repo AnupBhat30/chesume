@@ -1,9 +1,9 @@
-// @ts-ignore
+// @ts-expect-error
 import pdf from 'pdf-parse/lib/pdf-parse.js';
 
 export const extractTextFromPDF = async (buffer: Buffer): Promise<string> => {
   try {
-    // @ts-ignore
+    // @ts-expect-error
     const data = await pdf(buffer);
     return data.text;
   } catch (error) {
