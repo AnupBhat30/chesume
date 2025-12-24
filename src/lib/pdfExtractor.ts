@@ -1,9 +1,8 @@
-// @ts-expect-error pdf-parse has no TypeScript types for its ESM entry
-import pdf from 'pdf-parse/lib/pdf-parse.js';
-
 export const extractTextFromPDF = async (buffer: Buffer): Promise<string> => {
   try {
-    const data = await pdf(buffer);
+    // pdf-parse ships CJS; use dynamic import to access its default export safely in ESM
+    const { default: pdfParse } = await import('pdf-parse');
+    const data = await pdfParse(buffer);
     return data.text;
   } catch (error) {
     console.error('Error parsing PDF:', error);

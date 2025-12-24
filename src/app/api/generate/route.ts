@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateQuestions } from '@/lib/geminiService';
 
+export const runtime = "nodejs";
+
 export async function POST(req: NextRequest) {
   try {
     const { resumeText, jobDescription } = await req.json();

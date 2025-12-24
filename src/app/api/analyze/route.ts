@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { extractTextFromPDF } from '@/lib/pdfExtractor';
 import { analyzeResumeQuick } from '@/lib/geminiService';
 
+export const runtime = "nodejs";
+
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
