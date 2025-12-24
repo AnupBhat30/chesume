@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Transform interview anxiety into confident mastery with AI-powered interview prep that actually tests your claims.",
   icons: {
-    icon: "/chesume.png",
+    icon: "/logo.png",
   },
 };
 

@@ -16,7 +16,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-glow group-hover:shadow-glow-strong transition-all">
             <Image
-              src="/chesume.png"
+              src="/logo.png"
               alt="Chesume Logo"
               fill
               className="object-cover"

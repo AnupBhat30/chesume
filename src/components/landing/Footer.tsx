@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 text-2xl font-bold text-text-primary mb-8">
               <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-glow">
                 <Image
-                  src="/chesume.png"
+                  src="/logo.png"
                   alt="Chesume Logo"
                   fill
                   className="object-cover"
