@@ -1,6 +1,7 @@
 "use client";
 
 import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -11,8 +12,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 text-2xl font-bold text-text-primary mb-8">
-              <div className="w-10 h-10 rounded-xl bg-primary-accent flex items-center justify-center shadow-glow">
-                <Sparkles className="w-6 h-6 text-background" />
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-glow">
+                <Image
+                  src="/chesume.png"
+                  alt="Chesume Logo"
+                  fill
+                  className="object-cover"
+                />
               </div>
               Chesume
             </div>

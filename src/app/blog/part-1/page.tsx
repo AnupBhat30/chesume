@@ -1,10 +1,12 @@
 import QuestionCard from "@/components/blog/QuestionCard";
 import Link from "next/link";
+import Navbar from "@/components/landing/Navbar";
 
 export default function BlogPart1() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <Navbar />
+      <div className="max-w-4xl mx-auto pt-12">
         <nav className="mb-12">
           <Link
             href="/"
@@ -23,8 +25,8 @@ export default function BlogPart1() {
           </h1>
           <p className="text-xl text-gray-400 leading-relaxed">
             Master the fundamentals of programming with these 22 essential
-            number-based questions. These build the logical foundation
-            you'll need for more complex data structures.
+            number-based questions. These build the logical foundation you'll
+            need for more complex data structures.
           </p>
         </header>
 

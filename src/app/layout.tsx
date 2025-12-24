@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Chesume | AI-Powered Interview Prep",
   description:
     "Transform interview anxiety into confident mastery with AI-powered interview prep that actually tests your claims.",
+  icons: {
+    icon: "/chesume.png",
+  },
 };
 
 export default function RootLayout({

@@ -1,10 +1,12 @@
 import QuestionCard from "@/components/blog/QuestionCard";
 import Link from "next/link";
+import Navbar from "@/components/landing/Navbar";
 
 export default function BlogPart4() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <Navbar />
+      <div className="max-w-4xl mx-auto pt-12">
         <nav className="mb-12">
           <Link
             href="/blog"
@@ -503,8 +505,8 @@ ListNode* reverseList(ListNode* head) {
               </h2>
               <p className="text-gray-400 mb-6">
                 Linked lists and Matrices are the gateway to advanced DSA. The
-                remaining questions like "Merge Sorted LL" and
-                "Spiral Matrix" are common interview favorites.
+                remaining questions like "Merge Sorted LL" and "Spiral Matrix"
+                are common interview favorites.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link

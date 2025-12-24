@@ -1,4 +1,5 @@
 import Hero from "@/components/landing/Hero";
+import Navbar from "@/components/landing/Navbar";
 import ProblemSolution from "@/components/landing/ProblemSolution";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Features from "@/components/landing/Features";
@@ -12,6 +13,7 @@ import Footer from "@/components/landing/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-text-primary selection:bg-primary-accent/30 selection:text-primary-accent">
+      <Navbar />
       <Hero />
       <ProblemSolution />
       <HowItWorks />

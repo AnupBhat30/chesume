@@ -1,10 +1,12 @@
 import QuestionCard from "@/components/blog/QuestionCard";
 import Link from "next/link";
+import Navbar from "@/components/landing/Navbar";
 
 export default function BlogPart5() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <Navbar />
+      <div className="max-w-4xl mx-auto pt-12">
         <nav className="mb-12">
           <Link
             href="/blog"
@@ -230,9 +232,8 @@ void printPyramid(int n) {
                 The UMPIRE Method
               </h2>
               <p className="text-gray-400 mb-8">
-                When you face a problem you've never seen before,
-                don't panic. Use this 6-step framework used by engineers at
-                Google and Meta.
+                When you face a problem you've never seen before, don't panic.
+                Use this 6-step framework used by engineers at Google and Meta.
               </p>
 
               <div className="space-y-6">
@@ -286,9 +287,8 @@ void printPyramid(int n) {
                 Congratulations!
               </h2>
               <p className="text-gray-400 mb-8">
-                You've completed the 80+ Coding Interview Series. You now
-                have the foundation to tackle most entry-level technical
-                interviews.
+                You've completed the 80+ Coding Interview Series. You now have
+                the foundation to tackle most entry-level technical interviews.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Navbar from "@/components/landing/Navbar";
 import PreGenerationPhase from "@/app/generate/PreGenerationPhase";
 import LoadingPhase from "@/app/generate/LoadingPhase";
 import CompletionPhase from "@/app/generate/CompletionPhase";
@@ -97,7 +98,8 @@ export default function GeneratePage() {
 
   return (
     <div className="min-h-screen bg-surface text-text-primary flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-3xl">
+      <Navbar />
+      <div className="w-full max-w-3xl pt-20">
         {state === "preview" && (
           <PreGenerationPhase
             analysis={analysis}

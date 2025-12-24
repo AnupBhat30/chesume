@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Navbar from "@/components/landing/Navbar";
 
 const blogParts = [
   {
@@ -51,7 +52,8 @@ const blogParts = [
 export default function BlogIndex() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100 py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+      <Navbar />
+      <div className="max-w-5xl mx-auto pt-12">
         <header className="text-center mb-20">
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 bg-linear-to-r from-white to-gray-500 bg-clip-text text-transparent">
             The 80+ Coding Interview Series
