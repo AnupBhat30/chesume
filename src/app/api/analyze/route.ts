@@ -16,7 +16,17 @@ export async function POST(req: NextRequest) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
     const resumeText = await extractTextFromPDF(buffer);
+    console.log('Extracted text type:', typeof resumeText);
+    console.log('Extracted text length:', resumeText?.length);
+    
+    if (typeof resumeText === 'string') {
+      console.log('Extracted text preview:', resumeText.substring(0, 200));
+    } else {
+      console.log('Extracted text is not a string:', resumeText);
+    }
+    
     const analysisSummary = await analyzeResumeQuick(resumeText, apiKey);
+    console.log('Analysis summary:', analysisSummary);
 
     return NextResponse.json({
       success: true,
