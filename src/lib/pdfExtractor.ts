@@ -1,14 +1,9 @@
 export const extractTextFromPDF = async (buffer: Buffer): Promise<string> => {
   try {
-    const pdfModule = await import('pdf-parse');
-    const pdfParse =
-      // Prefer default export if available
-      (pdfModule as { default?: (input: Buffer) => Promise<{ text: string }> })
-        .default ??
-      // Fallback to the module itself (CommonJS style)
-      (pdfModule as unknown as (input: Buffer) => Promise<{ text: string }>);
-
-    const data = await pdfParse(buffer);
+    // Use require for CommonJS modules in API routes
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const pdf = require('pdf-parse');
+    const data = await pdf(buffer);
     return data.text;
   } catch (error) {
     console.error('Error parsing PDF:', error);
