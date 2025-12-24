@@ -1,7 +1,13 @@
 export const extractTextFromPDF = async (buffer: Buffer): Promise<string> => {
   try {
-    // pdf-parse ships CJS; use dynamic import to access its default export safely in ESM
-    const { default: pdfParse } = await import('pdf-parse');
+    const pdfModule = await import('pdf-parse');
+    const pdfParse =
+      // Prefer default export if available
+      (pdfModule as { default?: (input: Buffer) => Promise<{ text: string }> })
+        .default ??
+      // Fallback to the module itself (CommonJS style)
+      (pdfModule as unknown as (input: Buffer) => Promise<{ text: string }>);
+
     const data = await pdfParse(buffer);
     return data.text;
   } catch (error) {
