@@ -26,7 +26,7 @@ export default function BlogHighlight() {
 
             <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
               Master the{" "}
-              <span className="text-gradient from-[#268bd2] to-[#2aa198]">
+              <span className="text-gradient from-primary-accent to-primary-hover">
                 80+ Most Common
               </span>{" "}
               Coding Questions

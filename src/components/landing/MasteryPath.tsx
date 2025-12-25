@@ -52,7 +52,7 @@ export default function MasteryPath() {
             className="text-4xl lg:text-6xl font-bold text-text-primary mb-6 tracking-tight"
           >
             The Path to{" "}
-            <span className="text-gradient from-[#268bd2] to-[#2aa198]">
+            <span className="text-gradient from-primary-accent to-primary-hover">
               Technical Mastery
             </span>
           </motion.h2>

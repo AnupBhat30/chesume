@@ -40,14 +40,28 @@ export default function Hero() {
     const frame = requestAnimationFrame(() => {
       setMounted(true);
       setApiKeyState(getApiKey() || "");
+
+      if (window.location.hash === "#hero-api-key") {
+        setShowKeyInput(true);
+      }
     });
-    return () => cancelAnimationFrame(frame);
+
+    const handleOpenKeyInput = () => setShowKeyInput(true);
+    window.addEventListener("open-api-key-input", handleOpenKeyInput);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("open-api-key-input", handleOpenKeyInput);
+    };
   }, []);
 
   const handleApiKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newKey = e.target.value;
     setApiKeyState(newKey);
     setApiKey(newKey);
+    if (newKey) {
+      window.dispatchEvent(new CustomEvent("api-key-set"));
+    }
   };
 
   if (!mounted) return null;
@@ -71,7 +85,7 @@ export default function Hero() {
             </div>
 
             <h1 className="text-6xl lg:text-8xl font-bold tracking-tight mb-8 leading-[0.95]">
-              <span className="text-gradient from-[#268bd2] to-[#2aa198]">
+              <span className="text-gradient from-primary-accent to-primary-hover">
                 Master Your
               </span>
               <br />
@@ -118,15 +132,19 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4" id="hero-api-key">
               <button
                 onClick={() => setShowKeyInput(!showKeyInput)}
-                className="flex items-center gap-2 text-sm text-text-secondary hover:text-primary-accent transition-colors"
+                className={`flex items-center gap-2 text-sm transition-colors ${
+                  !apiKey
+                    ? "text-primary-accent font-bold animate-pulse"
+                    : "text-text-secondary hover:text-primary-accent"
+                }`}
               >
                 <Key className="w-4 h-4" />
                 {apiKey
                   ? "Update Gemini API Key"
-                  : "Add your own Gemini API Key (Optional)"}
+                  : "Add your own Gemini API Key (Required for Generation)"}
               </button>
 
               {showKeyInput && (

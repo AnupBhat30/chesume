@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import ApiKeyBanner from "../ApiKeyBanner";
 
 export default function Navbar() {
   return (
