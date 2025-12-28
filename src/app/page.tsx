@@ -4,6 +4,7 @@ import ProblemSolution from "@/components/landing/ProblemSolution";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Features from "@/components/landing/Features";
 import QuestionCategories from "@/components/landing/QuestionCategories";
+import PracticeHighlight from "@/components/landing/PracticeHighlight";
 import BlogHighlight from "@/components/landing/BlogHighlight";
 import MasteryPath from "@/components/landing/MasteryPath";
 import FAQ from "@/components/landing/FAQ";
@@ -18,6 +19,7 @@ export default function Home() {
       <ProblemSolution />
       <HowItWorks />
       <MasteryPath />
+      <PracticeHighlight />
       <Features />
       <QuestionCategories />
       <BlogHighlight />

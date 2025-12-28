@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import ApiKeyBanner from "../ApiKeyBanner";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { Button } from "@/components/ui/button";
 
@@ -42,6 +41,12 @@ export default function Navbar() {
             className="text-sm font-medium text-text-secondary hover:text-primary-accent transition-colors"
           >
             Golden 20
+          </Link>
+          <Link
+            href="/practice"
+            className="text-sm font-medium text-text-secondary hover:text-primary-accent transition-colors"
+          >
+            Practice
           </Link>
           <Link href="/generate">
             <Button>Get Started</Button>
