@@ -85,7 +85,7 @@ export default function QuestionCategories() {
               className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
                 activeTab === category.id
                   ? "bg-primary-accent text-background shadow-glow"
-                  : "glass text-text-secondary hover:text-text-primary hover:bg-white/5"
+                  : "glass text-text-secondary hover:text-text-primary hover:bg-foreground/5"
               }`}
             >
               {category.icon}
@@ -117,7 +117,7 @@ export default function QuestionCategories() {
                       transition={{ delay: i * 0.1 }}
                       className="flex gap-6 group"
                     >
-                      <div className="shrink-0 w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary-accent font-mono font-bold group-hover:bg-primary-accent group-hover:text-background transition-all duration-300">
+                      <div className="shrink-0 w-10 h-10 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center justify-center text-primary-accent font-mono font-bold group-hover:bg-primary-accent group-hover:text-background transition-all duration-300">
                         {i + 1}
                       </div>
                       <p className="text-text-primary text-xl leading-relaxed font-medium italic">

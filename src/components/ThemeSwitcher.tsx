@@ -6,11 +6,15 @@ import { Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const themes = [
-  { id: "default" as const, name: "Default", color: "#3b82f6" },
-  { id: "purple" as const, name: "Purple", color: "#a855f7" },
-  { id: "blue" as const, name: "Ocean", color: "#0ea5e9" },
-  { id: "green" as const, name: "Forest", color: "#10b981" },
-  { id: "pink" as const, name: "Rose", color: "#ec4899" },
+  { id: "midnight" as const, name: "Midnight", color: "#3b82f6" },
+  { id: "nebula" as const, name: "Nebula", color: "#a855f7" },
+  { id: "abyss" as const, name: "Abyss", color: "#0ea5e9" },
+  { id: "emerald" as const, name: "Emerald", color: "#10b981" },
+  { id: "sakura" as const, name: "Sakura", color: "#ec4899" },
+  { id: "solarized-light" as const, name: "Solarized", color: "#fdf6e3" },
+  { id: "latte" as const, name: "Latte", color: "#eff1f5" },
+  { id: "clean" as const, name: "Clean", color: "#ffffff" },
+  { id: "nord" as const, name: "Nord", color: "#88c0d0" },
 ];
 
 export default function ThemeSwitcher() {
@@ -21,9 +25,9 @@ export default function ThemeSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-lg bg-surface hover:bg-surface-hover border border-white/10 transition-colors"
+        className="p-2 rounded-lg bg-surface hover:bg-surface-hover border border-foreground/10 transition-colors"
       >
-        <Palette className="icon-md text-text-primary" />
+        <Palette className="icon-md text-foreground" />
       </button>
 
       <AnimatePresence>
@@ -33,7 +37,7 @@ export default function ThemeSwitcher() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 top-12 bg-surface border border-white/10 rounded-xl shadow-xl p-3 z-50 min-w-[200px]"
+            className="absolute right-0 top-12 bg-surface border border-foreground/10 rounded-xl shadow-xl p-3 z-50 min-w-[200px]"
           >
             <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mb-3">
               Theme
@@ -56,7 +60,7 @@ export default function ThemeSwitcher() {
                     className="w-4 h-4 rounded-full"
                     style={{ backgroundColor: t.color }}
                   />
-                  <span className="text-sm text-text-primary">{t.name}</span>
+                  <span className="text-sm text-foreground">{t.name}</span>
                   {theme === t.id && (
                     <span className="ml-auto text-primary-accent text-sm">
                       ✓

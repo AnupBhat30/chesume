@@ -62,7 +62,7 @@ export default function LoadingPhase() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.3 }}
-              className="flex items-center justify-between p-4 rounded-xl bg-surface border border-white/10"
+              className="flex items-center justify-between p-4 rounded-xl bg-surface border border-foreground/10"
             >
               <div className="flex items-center gap-4">
                 {isCompleted ? (
@@ -70,7 +70,7 @@ export default function LoadingPhase() {
                 ) : isActive ? (
                   <Loader2 className="icon-lg text-primary-accent animate-spin" />
                 ) : (
-                  <Circle className="icon-lg text-white/20" />
+                  <Circle className="icon-lg text-foreground/20" />
                 )}
                 <span
                   className={
@@ -99,7 +99,7 @@ export default function LoadingPhase() {
         })}
       </div>
 
-      <div className="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+      <div className="w-full bg-foreground/10 h-1 rounded-full overflow-hidden">
         <motion.div
           className="bg-primary-accent h-full"
           initial={{ width: "0%" }}

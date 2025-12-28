@@ -75,7 +75,7 @@ export default function BlogHighlight() {
             </div>
 
             <Link href="/blog">
-              <button className="group h-14 px-8 rounded-full bg-white text-background font-bold text-lg flex items-center justify-center gap-3 transition-all hover:bg-gray-200 w-full sm:w-auto">
+              <button className="group h-14 px-8 rounded-full bg-primary-accent text-on-primary font-bold text-lg flex items-center justify-center gap-3 transition-all hover:bg-primary-hover w-full sm:w-auto">
                 Start Learning Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -89,7 +89,7 @@ export default function BlogHighlight() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="glass rounded-3xl p-8 border border-white/10 shadow-2xl relative overflow-hidden">
+            <div className="glass rounded-3xl p-8 border border-foreground/10 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4">
                 <div className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest">
                   Part 1: Foundation
@@ -107,8 +107,8 @@ export default function BlogHighlight() {
                   </p>
                 </div>
 
-                <div className="rounded-xl bg-background overflow-hidden border border-white/5">
-                  <div className="flex gap-2 px-4 py-2 border-b border-white/5 bg-white/5">
+                <div className="rounded-xl bg-background overflow-hidden border border-foreground/5">
+                  <div className="flex gap-2 px-4 py-2 border-b border-foreground/5 bg-foreground/5">
                     <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">
                       Python
                     </span>
@@ -132,13 +132,13 @@ export default function BlogHighlight() {
                 </div>
 
                 <div className="flex gap-4 text-xs">
-                  <div className="px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+                  <div className="px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10">
                     <span className="text-text-muted block mb-1 uppercase tracking-tighter">
                       Time
                     </span>
                     <span className="text-text-primary font-bold">O(N)</span>
                   </div>
-                  <div className="px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+                  <div className="px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10">
                     <span className="text-text-muted block mb-1 uppercase tracking-tighter">
                       Space
                     </span>

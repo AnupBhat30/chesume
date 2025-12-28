@@ -133,7 +133,7 @@ export default function BlogIndex() {
             <Link
               key={part.id}
               href={part.href}
-              className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.3)]"
+              className="group relative p-8 rounded-2xl bg-foreground/5 border border-foreground/10 hover:border-blue-500/50 transition-all hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.3)]"
             >
               <div className="flex justify-between items-start mb-4">
                 <span

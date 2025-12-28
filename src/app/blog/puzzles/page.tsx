@@ -40,7 +40,7 @@ function PuzzleCard({
       </div>
 
       <div className="space-y-8">
-        <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+        <div className="p-6 rounded-2xl bg-foreground/5 border border-foreground/10">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-3">
             The Problem
           </h3>
@@ -98,7 +98,7 @@ function PuzzleCard({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-foreground/5">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-red-400 mb-3">
               Common Mistakes
@@ -152,7 +152,7 @@ export default function PuzzlesBlog() {
           </p>
         </header>
 
-        <div className="mb-20 p-8 rounded-3xl bg-linear-to-b from-white/5 to-transparent border border-white/10">
+        <div className="mb-20 p-8 rounded-3xl bg-linear-to-b from-foreground/5 to-transparent border border-foreground/10">
           <h2 className="text-2xl font-bold mb-4">Why Companies Ask Puzzles</h2>
           <div className="prose prose-invert text-gray-400">
             <p>
@@ -740,14 +740,14 @@ export default function PuzzlesBlog() {
           </div>
         </main>
 
-        <section className="mt-24 p-8 rounded-3xl bg-white/5 border border-white/10">
+        <section className="mt-24 p-8 rounded-3xl bg-foreground/5 border border-foreground/10">
           <h2 className="text-2xl font-bold mb-8 text-center">
             Pattern Recognition Guide
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-white/10">
+                <tr className="border-b border-foreground/10">
                   <th className="py-4 px-4 text-blue-400 font-semibold">
                     Pattern
                   </th>
@@ -760,7 +760,7 @@ export default function PuzzlesBlog() {
                 </tr>
               </thead>
               <tbody className="text-gray-300">
-                <tr className="border-b border-white/5">
+                <tr className="border-b border-foreground/5">
                   <td className="py-4 px-4 font-medium">
                     Multi-dimensional thinking
                   </td>
@@ -769,28 +769,28 @@ export default function PuzzlesBlog() {
                     Use multiple properties (heat, weight, etc.)
                   </td>
                 </tr>
-                <tr className="border-b border-white/5">
+                <tr className="border-b border-foreground/5">
                   <td className="py-4 px-4 font-medium">
                     Self-referential logic
                   </td>
                   <td className="py-4 px-4">2, 4</td>
                   <td className="py-4 px-4">Create paradoxes or parity bits</td>
                 </tr>
-                <tr className="border-b border-white/5">
+                <tr className="border-b border-foreground/5">
                   <td className="py-4 px-4 font-medium">Backward induction</td>
                   <td className="py-4 px-4">9, 11</td>
                   <td className="py-4 px-4">
                     Work from the end state backwards
                   </td>
                 </tr>
-                <tr className="border-b border-white/5">
+                <tr className="border-b border-foreground/5">
                   <td className="py-4 px-4 font-medium">Greedy vs Optimal</td>
                   <td className="py-4 px-4">6, 8</td>
                   <td className="py-4 px-4">
                     Compare strategies for bottlenecks
                   </td>
                 </tr>
-                <tr className="border-b border-white/5">
+                <tr className="border-b border-foreground/5">
                   <td className="py-4 px-4 font-medium">Parallel operations</td>
                   <td className="py-4 px-4">14, 15, 16</td>
                   <td className="py-4 px-4">
@@ -880,7 +880,7 @@ export default function PuzzlesBlog() {
           </div>
         </section>
 
-        <footer className="mt-32 pt-12 border-t border-white/10 text-center">
+        <footer className="mt-32 pt-12 border-t border-foreground/10 text-center">
           <h2 className="text-2xl font-bold mb-4">
             Ready for Coding Challenges?
           </h2>

@@ -16,8 +16,8 @@ export default function LanguageToggleCodeBlock({
   const [language, setLanguage] = useState<"python" | "cpp">("python");
 
   return (
-    <div className="my-6 rounded-lg overflow-hidden border border-white/10 bg-[#0d1117]">
-      <div className="flex items-center justify-between px-4 py-2 bg-white/5 border-b border-white/10">
+    <div className="my-6 rounded-lg overflow-hidden border border-foreground/10 bg-[#0d1117]">
+      <div className="flex items-center justify-between px-4 py-2 bg-foreground/5 border-b border-foreground/10">
         <div className="flex gap-2">
           <button
             onClick={() => setLanguage("python")}

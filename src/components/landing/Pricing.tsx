@@ -44,7 +44,7 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative p-12 rounded-[3rem] bg-surface border border-white/10 shadow-2xl overflow-hidden group"
+            className="relative p-12 rounded-[3rem] bg-surface border border-foreground/10 shadow-2xl overflow-hidden group"
           >
             {/* Animated background glow */}
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary-accent/10 blur-[80px] rounded-full group-hover:bg-primary-accent/20 transition-colors duration-700" />
@@ -89,7 +89,7 @@ export default function Pricing() {
               ))}
             </div>
 
-            <button className="w-full py-6 rounded-2xl bg-primary-accent hover:bg-primary-hover text-background font-bold text-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-glow hover:shadow-glow-strong flex items-center justify-center gap-3">
+            <button className="w-full py-6 rounded-2xl bg-primary-accent hover:bg-primary-hover text-on-primary font-bold text-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-glow hover:shadow-glow-strong flex items-center justify-center gap-3">
               <Sparkles className="w-5 h-5" />
               Generate My Questions
             </button>
@@ -99,7 +99,7 @@ export default function Pricing() {
                 <Zap className="w-3 h-3 text-warning" />
                 Instant Access
               </div>
-              <div className="w-1 h-1 rounded-full bg-white/10" />
+              <div className="w-1 h-1 rounded-full bg-foreground/10" />
               <div className="flex items-center gap-2">
                 <Check className="w-3 h-3 text-success" />
                 200+ Used Today

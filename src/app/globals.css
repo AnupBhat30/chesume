@@ -18,12 +18,14 @@
   --color-error: var(--color-error);
   --color-text-secondary: var(--color-text-secondary);
   --color-text-muted: var(--color-text-muted);
+  --color-on-primary: var(--on-primary);
 }
 
 :root {
   --radius: 0.75rem;
   --background: #0a0a0a;
   --foreground: #fafafa;
+  --on-primary: #ffffff;
   --color-surface: #171717;
   --color-surface-hover: #262626;
   --color-primary-accent: #3b82f6;
@@ -35,9 +37,10 @@
   --color-text-muted: #525252;
 }
 
-[data-theme="default"] {
+[data-theme="midnight"] {
   --background: #0a0a0a;
   --foreground: #fafafa;
+  --on-primary: #ffffff;
   --color-surface: #171717;
   --color-surface-hover: #262626;
   --color-primary-accent: #3b82f6;
@@ -49,9 +52,10 @@
   --color-text-muted: #525252;
 }
 
-[data-theme="purple"] {
+[data-theme="nebula"] {
   --background: #0f071a;
   --foreground: #f5f3ff;
+  --on-primary: #ffffff;
   --color-surface: #1c0f30;
   --color-surface-hover: #2d1b4e;
   --color-primary-accent: #a855f7;
@@ -63,9 +67,10 @@
   --color-text-muted: #7c3aed;
 }
 
-[data-theme="blue"] {
+[data-theme="abyss"] {
   --background: #020617;
   --foreground: #f0f9ff;
+  --on-primary: #ffffff;
   --color-surface: #0f172a;
   --color-surface-hover: #1e293b;
   --color-primary-accent: #0ea5e9;
@@ -77,9 +82,10 @@
   --color-text-muted: #0369a1;
 }
 
-[data-theme="green"] {
+[data-theme="emerald"] {
   --background: #050a05;
   --foreground: #ecfdf5;
+  --on-primary: #ffffff;
   --color-surface: #0a1a0a;
   --color-surface-hover: #142a14;
   --color-primary-accent: #10b981;
@@ -91,9 +97,10 @@
   --color-text-muted: #065f46;
 }
 
-[data-theme="pink"] {
+[data-theme="sakura"] {
   --background: #0a0508;
   --foreground: #fdf2f8;
+  --on-primary: #ffffff;
   --color-surface: #1a0a12;
   --color-surface-hover: #2a101d;
   --color-primary-accent: #ec4899;
@@ -103,6 +110,66 @@
   --color-error: #ef4444;
   --color-text-secondary: #f9a8d4;
   --color-text-muted: #9d174d;
+}
+
+[data-theme="solarized-light"] {
+  --background: #fdf6e3;
+  --foreground: #002b36;
+  --on-primary: #ffffff;
+  --color-surface: #f5efdc;
+  --color-surface-hover: #eee8d5;
+  --color-primary-accent: #268bd2;
+  --color-primary-hover: #2aa198;
+  --color-success: #859900;
+  --color-warning: #b58900;
+  --color-error: #dc322f;
+  --color-text-secondary: #586e75;
+  --color-text-muted: #93a1a1;
+}
+
+[data-theme="latte"] {
+  --background: #eff1f5;
+  --foreground: #4c4f69;
+  --on-primary: #ffffff;
+  --color-surface: #e6e9ef;
+  --color-surface-hover: #dce0e8;
+  --color-primary-accent: #1e66f5;
+  --color-primary-hover: #7287fd;
+  --color-success: #40a02b;
+  --color-warning: #df8e1d;
+  --color-error: #d20f39;
+  --color-text-secondary: #5c5f77;
+  --color-text-muted: #6c6f85;
+}
+
+[data-theme="clean"] {
+  --background: #ffffff;
+  --foreground: #171717;
+  --on-primary: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-surface-hover: #eeeeee;
+  --color-primary-accent: #2563eb;
+  --color-primary-hover: #3b82f6;
+  --color-success: #16a34a;
+  --color-warning: #ca8a04;
+  --color-error: #dc2626;
+  --color-text-secondary: #525252;
+  --color-text-muted: #a3a3a3;
+}
+
+[data-theme="nord"] {
+  --background: #2e3440;
+  --foreground: #eceff4;
+  --on-primary: #2e3440;
+  --color-surface: #3b4252;
+  --color-surface-hover: #434c5e;
+  --color-primary-accent: #88c0d0;
+  --color-primary-hover: #81a1c1;
+  --color-success: #a3be8c;
+  --color-warning: #ebcb8b;
+  --color-error: #bf616a;
+  --color-text-secondary: #d8dee9;
+  --color-text-muted: #4c566a;
 }
 
 body {
@@ -116,29 +183,29 @@ body {
 
 @layer utilities {
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: color-mix(in srgb, var(--foreground), transparent 97%);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid color-mix(in srgb, var(--foreground), transparent 95%);
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.05);
+    background: color-mix(in srgb, var(--foreground), transparent 95%);
     backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid color-mix(in srgb, var(--foreground), transparent 90%);
   }
   
   .text-gradient {
-    background: linear-gradient(to bottom right, var(--foreground), var(--color-text-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-image: linear-gradient(to bottom right, var(--color-primary-accent), var(--color-primary-hover));
   }
 
   .bg-grid {
     background-size: 40px 40px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(to right, color-mix(in srgb, var(--foreground), transparent 97%) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--foreground), transparent 97%) 1px, transparent 1px);
   }
   
   .icon-sm {

@@ -102,7 +102,7 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className={`group relative p-8 rounded-[2rem] bg-surface border border-white/5 hover:border-primary-accent/30 transition-all duration-500 overflow-hidden ${feature.className}`}
+              className={`group relative p-8 rounded-[2rem] bg-surface border border-foreground/5 hover:border-primary-accent/30 transition-all duration-500 overflow-hidden ${feature.className}`}
             >
               {feature.visual}
 

@@ -225,7 +225,7 @@ void printPyramid(int n) {
             />
 
             <div
-              className="my-16 p-8 bg-white/5 border border-white/10 rounded-2xl"
+              className="my-16 p-8 bg-foreground/5 border border-foreground/10 rounded-2xl"
               id="umpire-method"
             >
               <h2 className="text-2xl font-bold text-white mb-6">
@@ -293,7 +293,7 @@ void printPyramid(int n) {
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   href="/blog"
-                  className="px-8 py-3 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors"
+                  className="px-8 py-3 bg-primary-accent text-background rounded-full font-bold hover:bg-primary-hover transition-colors"
                 >
                   Back to Blog Index
                 </Link>

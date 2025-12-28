@@ -39,8 +39,8 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="py-32 px-6 bg-surface/30 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-foreground/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-foreground/10 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24">
@@ -66,7 +66,7 @@ export default function HowItWorks() {
 
         <div className="relative">
           {/* Connection Line (Desktop) */}
-          <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-white/5 z-0" />
+          <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-foreground/5 z-0" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             {steps.map((step, index) => (
@@ -78,8 +78,8 @@ export default function HowItWorks() {
                 transition={{ delay: index * 0.1 }}
                 className="flex flex-col items-center lg:items-start text-center lg:text-left group"
               >
-                <div className="w-24 h-24 rounded-3xl bg-background border border-white/10 flex items-center justify-center text-primary-accent mb-8 shadow-xl group-hover:border-primary-accent/50 transition-all duration-500 group-hover:shadow-glow relative">
-                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-elevated border border-white/10 flex items-center justify-center text-xs font-bold text-text-muted">
+                <div className="w-24 h-24 rounded-3xl bg-background border border-foreground/10 flex items-center justify-center text-primary-accent mb-8 shadow-xl group-hover:border-primary-accent/50 transition-all duration-500 group-hover:shadow-glow relative">
+                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-elevated border border-foreground/10 flex items-center justify-center text-xs font-bold text-text-muted">
                     0{index + 1}
                   </div>
                   {step.icon}
@@ -103,7 +103,7 @@ export default function HowItWorks() {
         </div>
 
         <div className="mt-24 text-center">
-          <button className="px-10 py-5 rounded-full glass text-text-primary font-bold text-lg hover:bg-white/5 transition-all flex items-center gap-3 mx-auto">
+          <button className="px-10 py-5 rounded-full glass text-text-primary font-bold text-lg hover:bg-foreground/5 transition-all flex items-center gap-3 mx-auto">
             Try with Sample Resume
             <ArrowRight className="w-5 h-5" />
           </button>

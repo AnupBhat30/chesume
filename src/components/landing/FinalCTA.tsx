@@ -34,7 +34,7 @@ export default function FinalCTA() {
 
           <div className="flex flex-col items-center gap-8">
             <Link href="/generate">
-              <button className="group h-20 px-12 rounded-full bg-primary-accent hover:bg-primary-hover text-background font-bold text-2xl flex items-center gap-4 transition-all transform hover:scale-[1.05] shadow-glow hover:shadow-glow-strong">
+              <button className="group h-20 px-12 rounded-full bg-primary-accent hover:bg-primary-hover text-on-primary font-bold text-2xl flex items-center gap-4 transition-all transform hover:scale-[1.05] shadow-glow hover:shadow-glow-strong">
                 Master Your Resume
                 <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
               </button>

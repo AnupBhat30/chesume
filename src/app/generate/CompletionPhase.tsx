@@ -138,10 +138,10 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
         <div className="space-y-12">
           {categories.map((cat) => (
             <div key={cat.label} className="space-y-4">
-              <div className="flex items-center gap-3 border-b border-white/10 pb-2">
+              <div className="flex items-center gap-3 border-b border-foreground/10 pb-2">
                 <cat.icon className="icon-md text-primary-accent" />
                 <h3 className="text-xl font-semibold">{cat.label}</h3>
-                <span className="text-sm text-text-secondary bg-surface px-2 py-0.5 rounded-full border border-white/10">
+                <span className="text-sm text-text-secondary bg-surface px-2 py-0.5 rounded-full border border-foreground/10">
                   {cat.count}
                 </span>
               </div>
@@ -149,7 +149,7 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
                 {cat.items.map((q, i) => (
                   <div
                     key={i}
-                    className="bg-surface p-6 rounded-xl border border-white/10 hover:border-primary-accent/50 transition-all group"
+                    className="bg-surface p-6 rounded-xl border border-foreground/10 hover:border-primary-accent/50 transition-all group"
                   >
                     <div className="flex gap-4 mb-4">
                       <span className="text-primary-accent font-mono font-bold opacity-50 group-hover:opacity-100 transition-opacity">
@@ -192,7 +192,7 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="w-full py-4 border border-white/10 rounded-xl text-text-secondary hover:text-text-primary hover:bg-surface transition-all"
+          className="w-full py-4 border border-foreground/10 rounded-xl text-text-secondary hover:text-text-primary hover:bg-surface transition-all"
         >
           Back to Top
         </button>
@@ -230,7 +230,7 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 + i * 0.1 }}
-            className="bg-surface p-6 rounded-2xl border border-white/10 flex items-center justify-between"
+            className="bg-surface p-6 rounded-2xl border border-foreground/10 flex items-center justify-between"
           >
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-primary-accent/10 rounded-xl">
@@ -245,8 +245,8 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
         ))}
       </div>
 
-      <div className="bg-surface border border-white/10 rounded-2xl overflow-hidden">
-        <div className="p-4 border-b border-white/10 bg-surface-hover">
+      <div className="bg-surface border border-foreground/10 rounded-2xl overflow-hidden">
+        <div className="p-4 border-b border-foreground/10 bg-surface-hover">
           <span className="text-sm font-bold text-text-secondary uppercase tracking-wider">
             Sneak Peek
           </span>

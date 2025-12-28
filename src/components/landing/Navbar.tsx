@@ -13,7 +13,7 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/5"
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
@@ -25,7 +25,7 @@ export default function Navbar() {
               className="object-cover"
             />
           </div>
-          <span className="text-2xl font-bold text-text-primary tracking-tight">
+          <span className="text-2xl font-bold text-foreground tracking-tight">
             Chesume
           </span>
         </Link>

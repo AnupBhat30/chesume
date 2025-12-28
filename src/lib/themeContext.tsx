@@ -2,7 +2,16 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "default" | "purple" | "blue" | "green" | "pink";
+type Theme =
+  | "midnight"
+  | "nebula"
+  | "abyss"
+  | "emerald"
+  | "sakura"
+  | "solarized-light"
+  | "latte"
+  | "clean"
+  | "nord";
 
 interface ThemeContextType {
   theme: Theme;
@@ -12,7 +21,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("default");
+  const [theme, setThemeState] = useState<Theme>("midnight");
 
   useEffect(() => {
     const saved = localStorage.getItem("chesume-theme") as Theme;
@@ -20,7 +29,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setThemeState(saved);
       document.documentElement.setAttribute("data-theme", saved);
     } else {
-      document.documentElement.setAttribute("data-theme", "default");
+      document.documentElement.setAttribute("data-theme", "midnight");
     }
   }, []);
 

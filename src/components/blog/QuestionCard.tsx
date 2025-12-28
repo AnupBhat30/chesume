@@ -74,7 +74,7 @@ export default function QuestionCard({
           <p className="text-gray-300 whitespace-pre-line">{walkthrough}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-foreground/5 p-4 rounded-lg border border-foreground/10">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-green-400 mb-2">
               Complexity Analysis

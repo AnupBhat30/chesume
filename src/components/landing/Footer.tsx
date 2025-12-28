@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="py-24 px-6 border-t border-white/5 bg-background relative overflow-hidden">
+    <footer className="py-24 px-6 border-t border-foreground/5 bg-background relative overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-primary-accent/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
@@ -125,7 +125,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-text-muted text-sm font-medium">
+        <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row items-center justify-between gap-8 text-text-muted text-sm font-medium">
           <p>© 2025 Chesume AI. All rights reserved.</p>
           <div className="flex items-center gap-8">
             <a href="#" className="hover:text-text-primary transition-colors">

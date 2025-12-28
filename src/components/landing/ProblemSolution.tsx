@@ -59,7 +59,7 @@ export default function ProblemSolution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group p-8 rounded-3xl bg-surface border border-white/5 hover:border-orange-500/30 transition-all duration-500 relative overflow-hidden"
+              className="group p-8 rounded-3xl bg-surface border border-foreground/5 hover:border-orange-500/30 transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 blur-[60px] rounded-full -z-10 group-hover:bg-orange-500/10 transition-colors" />
 
@@ -99,7 +99,7 @@ export default function ProblemSolution() {
                 }
               </p>
             </div>
-            <button className="px-10 py-5 rounded-full bg-primary-accent text-background font-bold text-lg hover:bg-primary-hover transition-all shadow-glow hover:shadow-glow-strong whitespace-nowrap">
+            <button className="px-10 py-5 rounded-full bg-primary-accent text-on-primary font-bold text-lg hover:bg-primary-hover transition-all shadow-glow hover:shadow-glow-strong whitespace-nowrap">
               Try It Now
             </button>
           </div>

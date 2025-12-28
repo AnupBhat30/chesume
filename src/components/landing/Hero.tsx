@@ -120,13 +120,13 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-5 mb-8">
               <Link href="/generate">
-                <button className="group h-14 px-8 rounded-full bg-primary-accent hover:bg-primary-hover text-background font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-glow hover:shadow-glow-strong w-full sm:w-auto">
+                <button className="group h-14 px-8 rounded-full bg-primary-accent hover:bg-primary-hover text-on-primary font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-glow hover:shadow-glow-strong w-full sm:w-auto">
                   Generate My Questions
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
               <Link href="/blog">
-                <button className="h-14 px-8 rounded-full glass text-text-primary font-semibold text-lg hover:bg-white/5 transition-all w-full sm:w-auto">
+                <button className="h-14 px-8 rounded-full glass text-text-primary font-semibold text-lg hover:bg-foreground/5 transition-all w-full sm:w-auto">
                   80+ Interview Questions
                 </button>
               </Link>
@@ -199,8 +199,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-5 relative"
         >
-          <div className="relative rounded-2xl border border-white/10 bg-background shadow-2xl overflow-hidden group">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
+          <div className="relative rounded-2xl border border-foreground/10 bg-background shadow-2xl overflow-hidden group">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-foreground/5 bg-foreground/5">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
                 <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
@@ -231,7 +231,7 @@ export default function Hero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 2.5 }}
-                  className="p-4 rounded-lg bg-white/5 border border-white/5"
+                  className="p-4 rounded-lg bg-foreground/5 border border-foreground/5"
                 >
                   <div className="text-[10px] text-primary-accent mb-1 uppercase font-bold">
                     Claim Detected

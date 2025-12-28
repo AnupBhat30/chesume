@@ -888,7 +888,7 @@ bool isPerfectSquare(int n) {
           </main>
         </div>
 
-        <footer className="mt-20 pt-8 border-t border-white/10 text-center">
+        <footer className="mt-20 pt-8 border-t border-foreground/10 text-center">
           <p className="text-gray-500 mb-4">Ready for the next set?</p>
           <Link
             href="/blog/part-2"

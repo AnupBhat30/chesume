@@ -49,7 +49,7 @@ export default function SocialProof() {
               transition={{ delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="absolute -inset-4 bg-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              <div className="absolute -inset-4 bg-foreground/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
               <div
                 className={`text-5xl lg:text-6xl font-bold mb-3 tracking-tight ${stat.color}`}
               >

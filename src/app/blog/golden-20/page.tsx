@@ -47,7 +47,7 @@ export default function Golden20Blog() {
           ].map((p, i) => (
             <div
               key={i}
-              className="p-4 rounded-xl bg-white/5 border border-white/10"
+              className="p-4 rounded-xl bg-foreground/5 border border-foreground/10"
             >
               <h3 className="text-yellow-500 font-bold mb-1">{p.title}</h3>
               <p className="text-xs text-gray-500">{p.desc}</p>
@@ -954,7 +954,7 @@ def is_prime(n):
           </section>
         </main>
 
-        <footer className="mt-32 pt-12 border-t border-white/10 text-center">
+        <footer className="mt-32 pt-12 border-t border-foreground/10 text-center">
           <h2 className="text-2xl font-bold mb-4">Mastered these 20?</h2>
           <p className="text-gray-400 mb-8">
             You now have the tools to solve 70% of interview questions. Ready

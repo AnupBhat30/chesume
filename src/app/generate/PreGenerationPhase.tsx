@@ -74,7 +74,7 @@ export default function PreGenerationPhase({
             className={`flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-2xl cursor-pointer transition-all bg-surface ${
               isDragging
                 ? "border-primary-accent bg-primary-accent/5"
-                : "border-white/10 hover:border-primary-accent"
+                : "border-foreground/10 hover:border-primary-accent"
             }`}
           >
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -106,7 +106,7 @@ export default function PreGenerationPhase({
               value={jobDescription}
               onChange={(e) => setJobDescription(e.target.value)}
               placeholder="Paste the job description here to get more targeted questions..."
-              className="w-full h-32 p-4 bg-surface border border-white/10 rounded-xl focus:border-primary-accent focus:ring-1 focus:ring-primary-accent outline-none transition-all resize-none text-sm"
+              className="w-full h-32 p-4 bg-surface border border-foreground/10 rounded-xl focus:border-primary-accent focus:ring-1 focus:ring-primary-accent outline-none transition-all resize-none text-sm"
             />
           </div>
 
@@ -136,12 +136,12 @@ export default function PreGenerationPhase({
               value={jobDescription}
               onChange={(e) => setJobDescription(e.target.value)}
               placeholder="Paste the job description here to get more targeted questions..."
-              className="w-full h-32 p-4 bg-surface border border-white/10 rounded-xl focus:border-primary-accent focus:ring-1 focus:ring-primary-accent outline-none transition-all resize-none text-sm"
+              className="w-full h-32 p-4 bg-surface border border-foreground/10 rounded-xl focus:border-primary-accent focus:ring-1 focus:ring-primary-accent outline-none transition-all resize-none text-sm"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-surface p-6 rounded-xl border border-white/10 text-center">
+            <div className="bg-surface p-6 rounded-xl border border-foreground/10 text-center">
               <div className="text-3xl font-bold text-primary-accent mb-1">
                 {analysis.technicalSkills}
               </div>
@@ -149,13 +149,13 @@ export default function PreGenerationPhase({
                 Technical Skills
               </div>
             </div>
-            <div className="bg-surface p-6 rounded-xl border border-white/10 text-center">
+            <div className="bg-surface p-6 rounded-xl border border-foreground/10 text-center">
               <div className="text-3xl font-bold text-primary-accent mb-1">
                 {analysis.projects}
               </div>
               <div className="text-sm text-text-secondary">Projects Found</div>
             </div>
-            <div className="bg-surface p-6 rounded-xl border border-white/10 text-center">
+            <div className="bg-surface p-6 rounded-xl border border-foreground/10 text-center">
               <div className="text-3xl font-bold text-primary-accent mb-1">
                 {analysis.claimsToVerify}
               </div>
