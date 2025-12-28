@@ -70,7 +70,7 @@ export default function Hero() {
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-32 pb-20 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid -z-10 mask-[radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-20" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(38,139,210,0.15),transparent_50%)] -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,var(--color-primary-accent),transparent_50%)] opacity-15 -z-10" />
 
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-7 text-left">
@@ -199,7 +199,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-5 relative"
         >
-          <div className="relative rounded-2xl border border-white/10 bg-[#0d0d0d] shadow-2xl overflow-hidden group">
+          <div className="relative rounded-2xl border border-white/10 bg-background shadow-2xl overflow-hidden group">
             <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />

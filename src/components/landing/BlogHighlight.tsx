@@ -107,7 +107,7 @@ export default function BlogHighlight() {
                   </p>
                 </div>
 
-                <div className="rounded-xl bg-[#0d1117] overflow-hidden border border-white/5">
+                <div className="rounded-xl bg-background overflow-hidden border border-white/5">
                   <div className="flex gap-2 px-4 py-2 border-b border-white/5 bg-white/5">
                     <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">
                       Python

@@ -12,7 +12,7 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-text-primary selection:bg-primary-accent/30 selection:text-primary-accent">
+    <main className="min-h-screen bg-background text-foreground selection:bg-primary-accent/30 selection:text-primary-accent">
       <Navbar />
       <Hero />
       <ProblemSolution />

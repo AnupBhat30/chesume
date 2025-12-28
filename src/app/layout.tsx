@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ApiKeyBanner from "@/components/ApiKeyBanner";
+import { ThemeProvider } from "@/lib/themeContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,13 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} antialiased font-inter`}
         suppressHydrationWarning
       >
-        {children}
-        <ApiKeyBanner />
+        <ThemeProvider>
+          {children}
+          <ApiKeyBanner />
+        </ThemeProvider>
       </body>
     </html>
   );

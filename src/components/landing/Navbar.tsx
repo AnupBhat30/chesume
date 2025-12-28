@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ApiKeyBanner from "../ApiKeyBanner";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   return (
@@ -42,10 +44,9 @@ export default function Navbar() {
             Golden 20
           </Link>
           <Link href="/generate">
-            <button className="px-5 py-2 rounded-full bg-primary-accent hover:bg-primary-hover text-background font-bold text-sm transition-all shadow-glow">
-              Get Started
-            </button>
+            <Button>Get Started</Button>
           </Link>
+          <ThemeSwitcher />
         </div>
       </div>
     </motion.nav>

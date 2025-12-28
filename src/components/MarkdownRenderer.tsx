@@ -56,11 +56,11 @@ export default function MarkdownRenderer({
                 style={oneDark}
                 language={match[1]}
                 PreTag="div"
-                className="rounded-xl mb-4 border border-[#3a3a3a]"
+                className="rounded-xl mb-4 border border-white/10"
                 customStyle={{
                   margin: 0,
                   padding: "1rem",
-                  background: "#1a1a1a",
+                  background: "var(--color-background)",
                 }}
                 {...props}
               >

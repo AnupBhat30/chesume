@@ -9,10 +9,13 @@ import {
   Briefcase,
   Lightbulb,
   Cpu,
+  Download,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { getApiKey } from "@/lib/apiKey";
+import { generateQuestionsPDF } from "@/lib/pdfGenerator";
+import { Button } from "@/components/ui/button";
 
 interface CompletionPhaseProps {
   questions: Questions;
@@ -115,21 +118,30 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
       <div className="space-y-8 py-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
         <div className="flex items-center justify-between">
           <h2 className="text-3xl font-bold">All Questions</h2>
-          <button
-            onClick={() => setShowAll(false)}
-            className="text-text-secondary hover:text-text-primary transition-colors flex items-center gap-2"
-          >
-            Back to Summary
-          </button>
+          <div className="flex gap-3">
+            <Button
+              onClick={() => generateQuestionsPDF(questions)}
+              size="sm"
+            >
+              <Download className="w-4 h-4" />
+              Download PDF
+            </Button>
+            <Button
+              onClick={() => setShowAll(false)}
+              variant="ghost"
+            >
+              Back to Summary
+            </Button>
+          </div>
         </div>
 
         <div className="space-y-12">
           {categories.map((cat) => (
             <div key={cat.label} className="space-y-4">
-              <div className="flex items-center gap-3 border-b border-[#3a3a3a] pb-2">
-                <cat.icon className="w-5 h-5 text-primary-accent" />
+              <div className="flex items-center gap-3 border-b border-white/10 pb-2">
+                <cat.icon className="icon-md text-primary-accent" />
                 <h3 className="text-xl font-semibold">{cat.label}</h3>
-                <span className="text-sm text-text-secondary bg-[#242424] px-2 py-0.5 rounded-full border border-[#3a3a3a]">
+                <span className="text-sm text-text-secondary bg-surface px-2 py-0.5 rounded-full border border-white/10">
                   {cat.count}
                 </span>
               </div>
@@ -137,7 +149,7 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
                 {cat.items.map((q, i) => (
                   <div
                     key={i}
-                    className="bg-[#242424] p-6 rounded-xl border border-[#3a3a3a] hover:border-primary-accent/50 transition-all group"
+                    className="bg-surface p-6 rounded-xl border border-white/10 hover:border-primary-accent/50 transition-all group"
                   >
                     <div className="flex gap-4 mb-4">
                       <span className="text-primary-accent font-mono font-bold opacity-50 group-hover:opacity-100 transition-opacity">
@@ -148,7 +160,7 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
 
                     <div className="pl-10">
                       {answers[q] ? (
-                        <div className="mt-4 p-6 bg-[#1a1a1a] rounded-xl border border-primary-accent/20 animate-in fade-in slide-in-from-top-2 duration-300">
+                        <div className="mt-4 p-6 bg-background rounded-xl border border-primary-accent/20 animate-in fade-in slide-in-from-top-2 duration-300">
                           <div className="text-xs font-bold text-primary-accent uppercase tracking-widest mb-4">
                             Model Answer
                           </div>
@@ -180,7 +192,7 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="w-full py-4 border border-[#3a3a3a] rounded-xl text-text-secondary hover:text-text-primary hover:bg-[#242424] transition-all"
+          className="w-full py-4 border border-white/10 rounded-xl text-text-secondary hover:text-text-primary hover:bg-surface transition-all"
         >
           Back to Top
         </button>
@@ -218,14 +230,14 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 + i * 0.1 }}
-            className="bg-[#242424] p-6 rounded-2xl border border-[#3a3a3a] flex items-center justify-between"
+            className="bg-surface p-6 rounded-2xl border border-white/10 flex items-center justify-between"
           >
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-primary-accent/10 rounded-xl">
-                <cat.icon className="w-6 h-6 text-primary-accent" />
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-primary-accent/10 rounded-xl">
+                  <cat.icon className="icon-lg text-primary-accent" />
+                </div>
+                <span className="font-medium">{cat.label}</span>
               </div>
-              <span className="font-medium">{cat.label}</span>
-            </div>
             <span className="text-2xl font-bold text-primary-accent">
               <NumberTicker value={cat.count} />
             </span>
@@ -233,8 +245,8 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
         ))}
       </div>
 
-      <div className="bg-[#242424] border border-[#3a3a3a] rounded-2xl overflow-hidden">
-        <div className="p-4 border-b border-[#3a3a3a] bg-[#2a2a2a]">
+      <div className="bg-surface border border-white/10 rounded-2xl overflow-hidden">
+        <div className="p-4 border-b border-white/10 bg-surface-hover">
           <span className="text-sm font-bold text-text-secondary uppercase tracking-wider">
             Sneak Peek
           </span>
@@ -251,13 +263,14 @@ export default function CompletionPhase({ questions }: CompletionPhaseProps) {
         </div>
       </div>
 
-      <button
+      <Button
         onClick={() => setShowAll(true)}
-        className="w-full py-5 bg-primary-accent hover:bg-primary-hover text-white font-bold text-xl rounded-2xl transition-all flex items-center justify-center gap-2 group"
+        size="lg"
+        className="w-full text-xl rounded-2xl group"
       >
         Start Practicing
-        <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-      </button>
+        <ArrowRight className="icon-lg group-hover:translate-x-1 transition-transform" />
+      </Button>
     </div>
   );
 }
