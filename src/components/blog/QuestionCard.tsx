@@ -32,6 +32,8 @@ export default function QuestionCard({
   mistakes,
   tryIt,
 }: QuestionCardProps) {
+  const formatText = (text: string) => text.split("\\n").join("\n");
+
   return (
     <section
       className="mb-16 scroll-mt-20"
@@ -44,14 +46,18 @@ export default function QuestionCard({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">
             What You'll Learn
           </h3>
-          <p className="text-gray-300">{learn}</p>
+          <p className="text-gray-300 whitespace-pre-line">
+            {formatText(learn)}
+          </p>
         </div>
 
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">
             Real-World Context
           </h3>
-          <p className="text-gray-300 italic">"{context}"</p>
+          <p className="text-gray-300 italic whitespace-pre-line">
+            &quot;{formatText(context)}&quot;
+          </p>
         </div>
 
         <div>
@@ -60,7 +66,9 @@ export default function QuestionCard({
           </h3>
           <ul className="list-decimal list-inside space-y-2 text-gray-300">
             {steps.map((step, i) => (
-              <li key={i}>{step}</li>
+              <li key={i} className="whitespace-pre-line">
+                {formatText(step)}
+              </li>
             ))}
           </ul>
         </div>
@@ -71,7 +79,9 @@ export default function QuestionCard({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">
             Line-by-Line Walkthrough
           </h3>
-          <p className="text-gray-300 whitespace-pre-line">{walkthrough}</p>
+          <p className="text-gray-300 whitespace-pre-line">
+            {formatText(walkthrough)}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-foreground/5 p-4 rounded-lg border border-foreground/10">
@@ -86,7 +96,9 @@ export default function QuestionCard({
               <li>
                 <span className="font-semibold">Space:</span> {complexity.space}
               </li>
-              <li className="text-xs text-gray-400 mt-1">{complexity.why}</li>
+              <li className="text-xs text-gray-400 mt-1 whitespace-pre-line">
+                {formatText(complexity.why)}
+              </li>
             </ul>
           </div>
           <div>
@@ -96,9 +108,13 @@ export default function QuestionCard({
             <ul className="text-sm space-y-2 text-gray-300">
               {mistakes.map((m, i) => (
                 <li key={i}>
-                  <span className="text-red-400">❌ {m.mistake}</span>
+                  <span className="text-red-400 whitespace-pre-line">
+                    ❌ {formatText(m.mistake)}
+                  </span>
                   <br />
-                  <span className="text-green-400">✅ {m.fix}</span>
+                  <span className="text-green-400 whitespace-pre-line">
+                    ✅ {formatText(m.fix)}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -109,7 +125,9 @@ export default function QuestionCard({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-1">
             Try It Yourself
           </h3>
-          <p className="text-sm text-gray-300">{tryIt}</p>
+          <p className="text-sm text-gray-300 whitespace-pre-line">
+            {formatText(tryIt)}
+          </p>
         </div>
       </div>
     </section>

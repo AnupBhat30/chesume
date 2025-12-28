@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { ComponentPropsWithoutRef } from "react";
 
 interface MarkdownRendererProps {
   content: string;
@@ -19,41 +20,48 @@ export default function MarkdownRenderer({
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          h1: ({ node, ...props }) => (
+          h1: ({ ...props }) => (
             <h1
               className="text-2xl font-bold mb-4 text-primary-accent"
               {...props}
             />
           ),
-          h2: ({ node, ...props }) => (
+          h2: ({ ...props }) => (
             <h2
               className="text-xl font-bold mb-3 text-primary-accent"
               {...props}
             />
           ),
-          h3: ({ node, ...props }) => (
+          h3: ({ ...props }) => (
             <h3
               className="text-lg font-bold mb-2 text-primary-accent"
               {...props}
             />
           ),
-          p: ({ node, ...props }) => (
-            <p className="mb-4 text-text-primary leading-relaxed" {...props} />
+          p: ({ ...props }) => (
+            <p
+              className="mb-4 text-text-primary leading-relaxed whitespace-pre-line"
+              {...props}
+            />
           ),
-          ul: ({ node, ...props }) => (
+          ul: ({ ...props }) => (
             <ul className="list-disc pl-6 mb-4 space-y-2" {...props} />
           ),
-          ol: ({ node, ...props }) => (
+          ol: ({ ...props }) => (
             <ol className="list-decimal pl-6 mb-4 space-y-2" {...props} />
           ),
-          li: ({ node, ...props }) => (
-            <li className="text-text-primary" {...props} />
-          ),
-          code({ node, inline, className, children, ...props }: any) {
+          li: ({ ...props }) => <li className="text-text-primary" {...props} />,
+          code({
+            inline,
+            className,
+            children,
+            ...props
+          }: ComponentPropsWithoutRef<"code"> & { inline?: boolean }) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
               <SyntaxHighlighter
-                style={oneDark}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                style={oneDark as any}
                 language={match[1]}
                 PreTag="div"
                 className="rounded-xl mb-4 border border-foreground/10"
@@ -75,7 +83,7 @@ export default function MarkdownRenderer({
               </code>
             );
           },
-          blockquote: ({ node, ...props }) => (
+          blockquote: ({ ...props }) => (
             <blockquote
               className="border-l-4 border-primary-accent pl-4 italic my-4 text-text-secondary"
               {...props}

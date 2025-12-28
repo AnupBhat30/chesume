@@ -30,6 +30,8 @@ function PuzzleCard({
   mistakes,
   variations,
 }: PuzzleCardProps) {
+  const formatText = (text: string) => text.split("\\n").join("\n");
+
   return (
     <section id={`puzzle-${id}`} className="mb-24 scroll-mt-20">
       <div className="flex items-center gap-4 mb-6">
@@ -44,7 +46,9 @@ function PuzzleCard({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-3">
             The Problem
           </h3>
-          <p className="text-gray-200 leading-relaxed">{problem}</p>
+          <p className="text-gray-200 leading-relaxed whitespace-pre-line">
+            {formatText(problem)}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -52,13 +56,17 @@ function PuzzleCard({
             <h3 className="text-sm font-semibold uppercase tracking-wider text-red-400 mb-3">
               Your First Instinct
             </h3>
-            <p className="text-gray-400 italic">&quot;{instinct}&quot;</p>
+            <p className="text-gray-400 italic whitespace-pre-line">
+              &quot;{formatText(instinct)}&quot;
+            </p>
           </div>
           <div className="p-6 rounded-2xl bg-green-500/5 border border-green-500/10">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-green-400 mb-3">
               The Key Insight
             </h3>
-            <p className="text-gray-200 font-medium">{insight}</p>
+            <p className="text-gray-200 font-medium whitespace-pre-line">
+              {formatText(insight)}
+            </p>
           </div>
         </div>
 
@@ -70,7 +78,7 @@ function PuzzleCard({
             {steps.map((step, i) => (
               <li key={i} className="flex gap-4 text-gray-300">
                 <span className="text-blue-500 font-bold">{i + 1}.</span>
-                <span>{step}</span>
+                <span className="whitespace-pre-line">{formatText(step)}</span>
               </li>
             ))}
           </ul>
@@ -80,7 +88,9 @@ function PuzzleCard({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-3">
             {analysisTitle}
           </h3>
-          <p className="text-gray-300 whitespace-pre-line">{analysis}</p>
+          <p className="text-gray-300 whitespace-pre-line">
+            {formatText(analysis)}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -88,13 +98,17 @@ function PuzzleCard({
             <h3 className="text-sm font-semibold uppercase tracking-wider text-purple-400 mb-3">
               Pattern Learned
             </h3>
-            <p className="text-gray-300">{pattern}</p>
+            <p className="text-gray-300 whitespace-pre-line">
+              {formatText(pattern)}
+            </p>
           </div>
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-yellow-400 mb-3">
               Interview Script
             </h3>
-            <p className="text-gray-300 italic">&quot;{script}&quot;</p>
+            <p className="text-gray-300 italic whitespace-pre-line">
+              &quot;{formatText(script)}&quot;
+            </p>
           </div>
         </div>
 

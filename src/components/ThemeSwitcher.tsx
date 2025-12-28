@@ -37,7 +37,7 @@ export default function ThemeSwitcher() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 top-12 bg-surface border border-foreground/10 rounded-xl shadow-xl p-3 z-50 min-w-[200px]"
+            className="absolute right-0 top-12 bg-surface border border-foreground/10 rounded-xl shadow-xl p-3 z-50 min-w-50"
           >
             <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mb-3">
               Theme
