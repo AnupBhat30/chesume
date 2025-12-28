@@ -23,6 +23,7 @@ import {
   Copy,
   Check,
   Trash2,
+  User,
 } from "lucide-react";
 import Link from "next/link";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
@@ -485,7 +486,7 @@ export default function PracticeSessionPage() {
           )}
           <Button
             size="sm"
-            className="h-8 text-xs px-4 bg-primary hover:bg-primary/90 text-white"
+            className="h-8 text-xs px-4 bg-primary-accent hover:bg-primary-hover text-white"
             onClick={handleSubmit}
           >
             Submit
@@ -552,23 +553,39 @@ export default function PracticeSessionPage() {
               </div>
             ) : (
               <div className="h-full flex flex-col">
-                <div className="flex-1 space-y-4 mb-4">
+                <div className="flex-1 space-y-6 mb-4">
                   {messages.map((msg, i) => (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       key={i}
-                      className={`flex ${
-                        msg.role === "user" ? "justify-end" : "justify-start"
-                      }`}
+                      className={`flex gap-3 ${
+                        msg.role === "user" ? "flex-row-reverse" : "flex-row"
+                      } ${msg.role === "system" ? "justify-center" : ""}`}
                     >
+                      {msg.role !== "system" && (
+                        <div
+                          className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center border ${
+                            msg.role === "user"
+                              ? "bg-primary-accent/10 border-primary-accent/20 text-primary-accent"
+                              : "bg-white/5 border-white/10 text-muted-foreground"
+                          }`}
+                        >
+                          {msg.role === "user" ? (
+                            <User className="w-4 h-4" />
+                          ) : (
+                            <Brain className="w-4 h-4" />
+                          )}
+                        </div>
+                      )}
+
                       <div
-                        className={`max-w-[90%] p-3 rounded-xl text-sm ${
+                        className={`max-w-[85%] ${
                           msg.role === "user"
-                            ? "bg-primary/10 border border-primary/20 text-primary-foreground"
+                            ? "bg-[#2f2f2f] border border-white/5 p-4 rounded-2xl text-foreground shadow-sm"
                             : msg.role === "system"
-                            ? "bg-white/5 text-muted-foreground italic text-xs"
-                            : "bg-white/5 border border-white/10 text-foreground"
+                            ? "bg-white/5 text-muted-foreground italic text-[11px] px-4 py-1.5 rounded-full border border-white/5"
+                            : "flex-1 pt-1.5 text-foreground leading-relaxed"
                         }`}
                       >
                         <MarkdownRenderer content={msg.content} />
@@ -576,12 +593,15 @@ export default function PracticeSessionPage() {
                     </motion.div>
                   ))}
                   {isAiThinking && (
-                    <div className="flex justify-start">
+                    <div className="flex gap-3">
+                      <div className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center border bg-white/5 border-white/10 text-muted-foreground">
+                        <Brain className="w-4 h-4" />
+                      </div>
                       <div className="bg-white/5 border border-white/10 p-3 rounded-xl">
                         <div className="flex gap-1">
-                          <span className="w-1 h-1 bg-primary rounded-full animate-bounce" />
-                          <span className="w-1 h-1 bg-primary rounded-full animate-bounce [animation-delay:0.2s]" />
-                          <span className="w-1 h-1 bg-primary rounded-full animate-bounce [animation-delay:0.4s]" />
+                          <span className="w-1 h-1 bg-primary-accent rounded-full animate-bounce" />
+                          <span className="w-1 h-1 bg-primary-accent rounded-full animate-bounce [animation-delay:0.2s]" />
+                          <span className="w-1 h-1 bg-primary-accent rounded-full animate-bounce [animation-delay:0.4s]" />
                         </div>
                       </div>
                     </div>

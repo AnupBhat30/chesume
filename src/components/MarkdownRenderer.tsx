@@ -40,17 +40,25 @@ export default function MarkdownRenderer({
           ),
           p: ({ ...props }) => (
             <p
-              className="mb-4 text-text-primary leading-relaxed whitespace-pre-line"
+              className="mb-4 last:mb-0 text-foreground/90 leading-relaxed"
               {...props}
             />
           ),
           ul: ({ ...props }) => (
-            <ul className="list-disc pl-6 mb-4 space-y-2" {...props} />
+            <ul
+              className="list-disc pl-6 mb-4 last:mb-0 space-y-1 text-foreground/90"
+              {...props}
+            />
           ),
           ol: ({ ...props }) => (
-            <ol className="list-decimal pl-6 mb-4 space-y-2" {...props} />
+            <ol
+              className="list-decimal pl-6 mb-4 last:mb-0 space-y-1 text-foreground/90"
+              {...props}
+            />
           ),
-          li: ({ ...props }) => <li className="text-text-primary" {...props} />,
+          li: ({ ...props }) => (
+            <li className="text-foreground/90" {...props} />
+          ),
           code({
             inline,
             className,
@@ -64,11 +72,12 @@ export default function MarkdownRenderer({
                 style={oneDark as any}
                 language={match[1]}
                 PreTag="div"
-                className="rounded-xl mb-4 border border-foreground/10"
+                className="rounded-lg mb-4 border border-white/10"
                 customStyle={{
                   margin: 0,
                   padding: "1rem",
-                  background: "var(--color-background)",
+                  background: "#1e1e1e",
+                  fontSize: "0.85rem",
                 }}
                 {...props}
               >
@@ -76,7 +85,7 @@ export default function MarkdownRenderer({
               </SyntaxHighlighter>
             ) : (
               <code
-                className="bg-surface px-1.5 py-0.5 rounded text-primary-accent font-mono text-sm"
+                className="bg-white/10 px-1.5 py-0.5 rounded text-primary-accent font-mono text-[0.9em]"
                 {...props}
               >
                 {children}
@@ -85,7 +94,7 @@ export default function MarkdownRenderer({
           },
           blockquote: ({ ...props }) => (
             <blockquote
-              className="border-l-4 border-primary-accent pl-4 italic my-4 text-text-secondary"
+              className="border-l-4 border-primary-accent pl-4 italic my-4 text-muted-foreground"
               {...props}
             />
           ),

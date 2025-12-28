@@ -43,7 +43,7 @@ export default function PracticePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 flex flex-col">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary-accent/20 flex flex-col">
       <Navbar />
 
       <main className="flex-1 container mx-auto px-4 pt-32 pb-20">
@@ -93,7 +93,7 @@ export default function PracticePage() {
                   className={cn(
                     "rounded-full px-6 transition-all",
                     selectedDifficulty === diff
-                      ? "shadow-lg shadow-primary/20"
+                      ? "shadow-lg shadow-primary-accent/20"
                       : "hover:bg-muted"
                   )}
                 >
@@ -116,7 +116,7 @@ export default function PracticePage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.2, delay: index * 0.05 }}
-                  className="group relative flex flex-col p-6 rounded-3xl border border-border bg-card hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300"
+                  className="group relative flex flex-col p-6 rounded-3xl border border-border bg-card hover:border-primary-accent/50 hover:shadow-2xl hover:shadow-primary-accent/5 transition-all duration-300"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <Badge
@@ -145,7 +145,7 @@ export default function PracticePage() {
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-1">
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary-accent transition-colors line-clamp-1">
                     {problem.title}
                   </h3>
 
@@ -169,7 +169,7 @@ export default function PracticePage() {
                       href={`/practice/${problem.id}?mode=guided`}
                       className="col-span-1"
                     >
-                      <Button className="w-full group/btn bg-primary/10 hover:bg-primary/20 text-primary border-0 shadow-none">
+                      <Button className="w-full group/btn bg-primary-accent/10 hover:bg-primary-accent/20 text-primary-accent border-0 shadow-none">
                         <Brain className="w-4 h-4 mr-2" />
                         Guided
                       </Button>
@@ -180,10 +180,10 @@ export default function PracticePage() {
                     >
                       <Button
                         variant="outline"
-                        className="w-full group/solo hover:border-primary/50"
+                        className="w-full group/solo hover:border-primary-accent/50"
                       >
                         Solo
-                        <Code2 className="w-4 h-4 ml-2 text-muted-foreground group-hover/solo:text-primary transition-colors" />
+                        <Code2 className="w-4 h-4 ml-2 text-muted-foreground group-hover/solo:text-primary-accent transition-colors" />
                       </Button>
                     </Link>
                   </div>
