@@ -60,10 +60,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.png", sizes: "any" },
-      { url: "/logo.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192x192.png", type: "image/png", sizes: "192x192" },
     ],
-    apple: [{ url: "/logo.png", sizes: "180x180" }],
+    shortcut: "/favicon-32x32.png",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
   },
   manifest: "/manifest.json",
   openGraph: {
