@@ -49,9 +49,19 @@ export default function Hero() {
     const handleOpenKeyInput = () => setShowKeyInput(true);
     window.addEventListener("open-api-key-input", handleOpenKeyInput);
 
+    // Keyboard shortcut: Cmd/Ctrl + K to toggle API key input
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setShowKeyInput((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("open-api-key-input", handleOpenKeyInput);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -135,16 +145,18 @@ export default function Hero() {
             <div className="space-y-4" id="hero-api-key">
               <button
                 onClick={() => setShowKeyInput(!showKeyInput)}
-                className={`flex items-center gap-2 text-sm transition-colors ${
-                  !apiKey
-                    ? "text-primary-accent font-bold animate-pulse"
-                    : "text-text-secondary hover:text-primary-accent"
-                }`}
+                className={`flex items-center gap-2 text-sm transition-colors ${!apiKey
+                  ? "text-primary-accent font-bold animate-pulse"
+                  : "text-text-secondary hover:text-primary-accent"
+                  }`}
               >
                 <Key className="w-4 h-4" />
                 {apiKey
                   ? "Update Gemini API Key"
                   : "Add your own Gemini API Key (Required for Generation)"}
+                <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 ml-1 text-[10px] font-mono bg-foreground/10 rounded border border-foreground/20 text-text-muted">
+                  ⌘K
+                </kbd>
               </button>
 
               {showKeyInput && (

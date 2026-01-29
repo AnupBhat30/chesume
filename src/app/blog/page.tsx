@@ -47,6 +47,24 @@ const blogParts = [
     color: "red",
     href: "/blog/part-5",
   },
+  {
+    id: 6,
+    title: "Blind 75: Complete FAANG Interview Prep",
+    description:
+      "The definitive 75 LeetCode questions covering all patterns for top tech interviews. Solutions in Python and C++.",
+    tag: "Advanced",
+    color: "red",
+    href: "/blog/blind-75",
+  },
+  {
+    id: 7,
+    title: "Complete Python & C++ Syntax + DSA Reference",
+    description:
+      "Comprehensive guide to Python and C++ syntax plus all essential data structures and algorithms implementations for interviews.",
+    tag: "Reference",
+    color: "green",
+    href: "/blog/syntax-guide",
+  },
 ];
 
 export default function BlogIndex() {
@@ -56,7 +74,7 @@ export default function BlogIndex() {
       <div className="max-w-5xl mx-auto pt-12">
         <header className="text-center mb-20">
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 bg-linear-to-r from-white to-gray-500 bg-clip-text text-transparent">
-            The 80+ Coding Interview Series
+            The Complete Coding Interview Series
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
             A comprehensive 21-day roadmap to master the most common coding
