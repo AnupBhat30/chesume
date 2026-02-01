@@ -65,6 +65,15 @@ const blogParts = [
     color: "green",
     href: "/blog/syntax-guide",
   },
+  {
+    id: 9,
+    title: "Entry-Level Interview Answers: 200+ Questions",
+    description:
+      "Complete answers to 200+ interview questions for 5-10 LPA companies. OOP, SQL, system design, and coding problems with detailed solutions.",
+    tag: "Interview Prep",
+    color: "green",
+    href: "/blog/entry-level-interview-answers",
+  },
 ];
 
 export default function BlogIndex() {

@@ -1,5 +1,6 @@
 import Navbar from "@/components/landing/Navbar";
 import CodeBlock from "@/components/blog/CodeBlock";
+import SyntaxSection from "@/components/blog/SyntaxSection";
 
 export default function SyntaxGuideBlog() {
   return (
@@ -108,16 +109,13 @@ export default function SyntaxGuideBlog() {
                   1. Basic Syntax & Data Types
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">
+                <h4 className="text-lg font-medium mb-6">
                   Variables & Numbers
                 </h4>
-                <p className="text-gray-300 mb-3">
-                  Python uses dynamic typing. Variables are created on
-                  assignment and can change types.
-                </p>
-                <CodeBlock
-                  language="python"
-                  code={`# Variables
+                <SyntaxSection
+                  title="Variables & Numbers"
+                  explanation="Python uses dynamic typing. Variables are created on assignment and can change types."
+                  pythonCode={`# Variables
 x = 5          # int
 y = 3.14       # float
 z = 2 + 3j     # complex
@@ -130,27 +128,15 @@ str(42)        # '42'
 # Multiple assignment
 a, b, c = 1, 2, 3
 x = y = z = 0`}
+                  interviewTips="Know type conversion edge cases like float to int truncation."
+                  commonPitfalls="Don't use mutable objects as default arguments."
+                  performance="Use integers for counters; floats are slower."
                 />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Know type conversion edge
-                  cases like float to int truncation.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Don't use mutable objects as
-                  default arguments.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Use integers for counters;
-                  floats are slower.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Strings</h4>
-                <p className="text-gray-300 mb-3">
-                  Immutable sequences of characters with rich string methods.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# String literals
+                <SyntaxSection
+                  title="Strings"
+                  explanation="Immutable sequences of characters with rich string methods."
+                  pythonCode={`# String literals
 s1 = 'hello'
 s2 = "world"
 s3 = '''multi
@@ -168,28 +154,16 @@ s.split()           # ['Hello', 'World']
 # String formatting
 f"Value: {x}"       # f-strings (Python 3.6+)
 "Value: {}".format(x)
-"Value: %s" % x`}</code>
-                </pre>
+"Value: %s" % x`}
+                  interviewTips="Use f-strings for readability; know slicing syntax."
+                  commonPitfalls="Strings are immutable - s[0] = 'x' fails."
+                  performance="String concatenation with + is O(n²); use join()."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use f-strings for
-                  readability; know slicing syntax.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Strings are immutable - s[0]
-                  = 'x' fails.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> String concatenation with + is
-                  O(n²); use join().
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Lists</h4>
-                <p className="text-gray-300 mb-3">
-                  Mutable, ordered sequences. Most versatile data structure.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# List creation
+                <SyntaxSection
+                  title="Lists"
+                  explanation="Mutable, ordered sequences. Most versatile data structure."
+                  pythonCode={`# List creation
 lst = [1, 2, 3]
 empty = []
 nested = [[1, 2], [3, 4]]
@@ -204,28 +178,16 @@ lst.reverse()       # reverses in place
 
 # List comprehensions
 squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]
-evens = [x for x in lst if x % 2 == 0]`}</code>
-                </pre>
+evens = [x for x in lst if x % 2 == 0]`}
+                  interviewTips="List comprehensions are more Pythonic than loops."
+                  commonPitfalls="Modifying list while iterating causes skips."
+                  performance="append() is O(1) amortized; insert(0) is O(n)."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> List comprehensions are more
-                  Pythonic than loops.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Modifying list while
-                  iterating causes skips.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> append() is O(1) amortized;
-                  insert(0) is O(n).
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Tuples</h4>
-                <p className="text-gray-300 mb-3">
-                  Immutable ordered sequences. Use for fixed data.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Tuple creation
+                <SyntaxSection
+                  title="Tuples"
+                  explanation="Immutable ordered sequences. Use for fixed data."
+                  pythonCode={`# Tuple creation
 tup = (1, 2, 3)
 single = (5,)      # comma required for single element
 empty = ()
@@ -240,28 +202,16 @@ len(tup)           # 3
 # Tuple unpacking
 a, b, c = tup
 first, *rest = tup  # first=1, rest=[2, 3]
-*head, last = tup   # head=[1, 2], last=3`}</code>
-                </pre>
+*head, last = tup   # head=[1, 2], last=3`}
+                  interviewTips="Use tuples for dictionary keys; unpacking is powerful."
+                  commonPitfalls="Single element needs comma: (5,) not (5)."
+                  performance="Tuples are faster than lists for read-only data."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use tuples for dictionary
-                  keys; unpacking is powerful.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Single element needs comma:
-                  (5,) not (5).
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Tuples are faster than lists for
-                  read-only data.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Dictionaries</h4>
-                <p className="text-gray-300 mb-3">
-                  Key-value mappings. Ordered since Python 3.7.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Dictionary creation
+                <SyntaxSection
+                  title="Dictionaries"
+                  explanation="Key-value mappings. Ordered since Python 3.7."
+                  pythonCode={`# Dictionary creation
 d = {'a': 1, 'b': 2}
 d = dict(a=1, b=2)
 d = dict([('a', 1), ('b', 2)])
@@ -271,32 +221,20 @@ d['c'] = 3         # add/update
 d.get('a', 0)      # 1 (safe access)
 d.pop('b')         # removes and returns value
 d.keys()           # dict_keys(['a', 'c'])
-d.values()         # dict_values([1, 3])
+d.values()          # dict_values([1, 3])
 d.items()          # dict_items([('a', 1), ('c', 3)])
 
 # Dict comprehensions
-squares = {x: x**2 for x in range(5)}  # {0: 0, 1: 1, 4: 4, ...}`}</code>
-                </pre>
+squares = {x: x**2 for x in range(5)}  # {0: 0, 1: 1, 4: 4, ...}`}
+                  interviewTips="Use get() to avoid KeyError; dicts are O(1) lookup."
+                  commonPitfalls="Keys must be hashable (immutable)."
+                  performance="O(1) average case lookup; use for frequency counting."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use get() to avoid KeyError;
-                  dicts are O(1) lookup.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Keys must be hashable
-                  (immutable).
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> O(1) average case lookup; use
-                  for frequency counting.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Sets</h4>
-                <p className="text-gray-300 mb-3">
-                  Unordered collections of unique elements.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Set creation
+                <SyntaxSection
+                  title="Sets"
+                  explanation="Unordered collections of unique elements."
+                  pythonCode={`# Set creation
 s = {1, 2, 3}
 s = set([1, 2, 2, 3])  # {1, 2, 3} (duplicates removed)
 empty = set()
@@ -313,28 +251,16 @@ b = {2, 3, 4}
 a | b              # union: {1, 2, 3, 4}
 a & b              # intersection: {2, 3}
 a - b              # difference: {1}
-a ^ b              # symmetric difference: {1, 4}`}</code>
-                </pre>
+a ^ b              # symmetric difference: {1, 4}`}
+                  interviewTips="Use sets for membership testing; deduplication."
+                  commonPitfalls="Sets are unordered; no indexing."
+                  performance="O(1) membership testing; faster than lists."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use sets for membership
-                  testing; deduplication.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Sets are unordered; no
-                  indexing.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> O(1) membership testing; faster
-                  than lists.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Booleans</h4>
-                <p className="text-gray-300 mb-3">
-                  Truth values with special behavior in conditionals.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Boolean values
+                <SyntaxSection
+                  title="Booleans"
+                  explanation="Truth values with special behavior in conditionals."
+                  pythonCode={`# Boolean values
 True, False
 
 # Truthy/falsy values
@@ -352,21 +278,11 @@ and, or, not
 # Short-circuit evaluation
 x = 5
 y = 0
-result = x > 0 and y != 0  # False (y != 0 not evaluated)`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Know truthy/falsy values; use
-                  short-circuiting.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Don't compare with == True;
-                  use implicit boolean.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Short-circuit evaluation can
-                  save computations.
-                </p>
+result = x > 0 and y != 0  # False (y != 0 not evaluated)`}
+                  interviewTips="Know truthy/falsy values; use short-circuiting."
+                  commonPitfalls="Don't compare with == True; use implicit boolean."
+                  performance="Short-circuit evaluation can save computations."
+                />
               </div>
 
               {/* Control Structures */}
@@ -375,12 +291,10 @@ result = x > 0 and y != 0  # False (y != 0 not evaluated)`}</code>
                   2. Control Structures
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">If/Else Statements</h4>
-                <p className="text-gray-300 mb-3">
-                  Conditional execution with elif chains.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Basic if/else
+                <SyntaxSection
+                  title="If/Else Statements"
+                  explanation="Conditional execution with elif chains."
+                  pythonCode={`# Basic if/else
 if condition:
     # do something
 elif another_condition:
@@ -397,28 +311,16 @@ if x > 0 and y > 0:
 
 # Membership testing
 if item in collection:
-    print("Found it")`}</code>
-                </pre>
+    print("Found it")`}
+                  interviewTips="Use ternary for simple cases; chain conditions properly."
+                  commonPitfalls="Indentation errors; forgetting colons."
+                  performance="Short-circuit evaluation in and/or."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use ternary for simple cases;
-                  chain conditions properly.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Indentation errors;
-                  forgetting colons.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Short-circuit evaluation in
-                  and/or.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Loops</h4>
-                <p className="text-gray-300 mb-3">
-                  for and while loops with break/continue.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# for loop
+                <SyntaxSection
+                  title="Loops"
+                  explanation="for and while loops with break/continue."
+                  pythonCode={`# for loop
 for item in iterable:
     if condition:
         continue  # skip to next iteration
@@ -439,28 +341,16 @@ for i, item in enumerate(items):
 # range for numbers
 for i in range(5):      # 0, 1, 2, 3, 4
 for i in range(1, 6):   # 1, 2, 3, 4, 5
-for i in range(0, 10, 2): # 0, 2, 4, 6, 8`}</code>
-                </pre>
+for i in range(0, 10, 2): # 0, 2, 4, 6, 8`}
+                  interviewTips="Use enumerate() for indices; range() for counters."
+                  commonPitfalls="Modifying list during iteration; infinite while loops."
+                  performance="for loops are faster than while for known iterations."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use enumerate() for indices;
-                  range() for counters.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Modifying list during
-                  iteration; infinite while loops.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> for loops are faster than while
-                  for known iterations.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Comprehensions</h4>
-                <p className="text-gray-300 mb-3">
-                  Concise syntax for creating collections.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# List comprehension
+                <SyntaxSection
+                  title="Comprehensions"
+                  explanation="Concise syntax for creating collections."
+                  pythonCode={`# List comprehension
 squares = [x**2 for x in range(10)]
 evens = [x for x in range(10) if x % 2 == 0]
 
@@ -477,21 +367,11 @@ matrix = [[i*j for j in range(3)] for i in range(3)]
 filtered = [x for x in data if x > 0 and x < 100]
 
 # Complex expressions
-processed = [func(item) for item in data if condition(item)]`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> More readable than nested
-                  loops; use for filtering/mapping.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Don't overuse; can become
-                  unreadable.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Often faster than equivalent
-                  loops due to optimization.
-                </p>
+processed = [func(item) for item in data if condition(item)]`}
+                  interviewTips="More readable than nested loops; use for filtering/mapping."
+                  commonPitfalls="Don't overuse; can become unreadable."
+                  performance="Often faster than equivalent loops due to optimization."
+                />
               </div>
 
               {/* Functions */}
@@ -500,14 +380,10 @@ processed = [func(item) for item in data if condition(item)]`}</code>
                   3. Functions
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">
-                  Function Definition
-                </h4>
-                <p className="text-gray-300 mb-3">
-                  First-class functions with flexible parameter handling.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Basic function
+                <SyntaxSection
+                  title="Function Definition"
+                  explanation="First-class functions with flexible parameter handling."
+                  pythonCode={`# Basic function
 def greet(name):
     return f"Hello, {name}!"
 
@@ -522,30 +398,16 @@ def divide(a, b):
     return quotient, remainder
 
 # Unpacking return values
-q, r = divide(10, 3)`}</code>
-                </pre>
+q, r = divide(10, 3)`}
+                  interviewTips="Use descriptive names; return multiple values as tuples."
+                  commonPitfalls="Mutable defaults are shared across calls."
+                  performance="Function calls have overhead; inline simple operations."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use descriptive names; return
-                  multiple values as tuples.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Mutable defaults are shared
-                  across calls.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Function calls have overhead;
-                  inline simple operations.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">
-                  Arguments & Keyword Arguments
-                </h4>
-                <p className="text-gray-300 mb-3">
-                  Flexible parameter passing with *args and **kwargs.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# *args for variable positional arguments
+                <SyntaxSection
+                  title="Arguments & Keyword Arguments"
+                  explanation="Flexible parameter passing with *args and **kwargs."
+                  pythonCode={`# *args for variable positional arguments
 def sum_all(*args):
     return sum(args)
 
@@ -565,27 +427,16 @@ def func(required, *args, default=None, **kwargs):
 # Calling with unpacking
 args = (1, 2, 3)
 kwargs = {'key': 'value'}
-func(*args, **kwargs)`}</code>
-                </pre>
+func(*args, **kwargs)`}
+                  interviewTips="Use *args/**kwargs for flexible APIs; order matters."
+                  commonPitfalls="Wrong parameter order causes errors."
+                  performance="Unpacking has minimal overhead."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use *args/**kwargs for
-                  flexible APIs; order matters.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Wrong parameter order causes
-                  errors.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Unpacking has minimal overhead.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Lambda Functions</h4>
-                <p className="text-gray-300 mb-3">
-                  Anonymous functions for simple operations.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Basic lambda
+                <SyntaxSection
+                  title="Lambda Functions"
+                  explanation="Anonymous functions for simple operations."
+                  pythonCode={`# Basic lambda
 square = lambda x: x ** 2
 square(5)  # 25
 
@@ -599,28 +450,16 @@ evens = list(filter(lambda x: x % 2 == 0, numbers))
 
 # Sorting with key function
 points = [(1, 2), (3, 1), (5, 0)]
-points.sort(key=lambda p: p[1])  # sort by y-coordinate`}</code>
-                </pre>
+points.sort(key=lambda p: p[1])  # sort by y-coordinate`}
+                  interviewTips="Use for simple functions; great with map/filter/sort."
+                  commonPitfalls="Lambdas can't contain statements (only expressions)."
+                  performance="Same as regular functions for simple cases."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use for simple functions;
-                  great with map/filter/sort.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Lambdas can't contain
-                  statements (only expressions).
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Same as regular functions for
-                  simple cases.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Recursion</h4>
-                <p className="text-gray-300 mb-3">
-                  Functions calling themselves. Need base case.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Factorial
+                <SyntaxSection
+                  title="Recursion"
+                  explanation="Functions calling themselves. Need base case."
+                  pythonCode={`# Factorial
 def factorial(n):
     if n <= 1:
         return 1
@@ -645,21 +484,11 @@ from functools import lru_cache
 def fib_memo(n):
     if n <= 1:
         return n
-    return fib_memo(n-1) + fib_memo(n-2)`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Always have base case; use
-                  memoization for optimization.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Stack overflow for deep
-                  recursion; forgetting base case.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Exponential without memoization;
-                  use iterative for large n.
-                </p>
+    return fib_memo(n-1) + fib_memo(n-2)`}
+                  interviewTips="Always have base case; use memoization for optimization."
+                  commonPitfalls="Stack overflow for deep recursion; forgetting base case."
+                  performance="Exponential without memoization; use iterative for large n."
+                />
               </div>
 
               {/* Classes & OOP */}
@@ -668,12 +497,10 @@ def fib_memo(n):
                   4. Classes & OOP
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">Class Definition</h4>
-                <p className="text-gray-300 mb-3">
-                  Blueprint for creating objects with methods and attributes.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Basic class
+                <SyntaxSection
+                  title="Class Definition"
+                  explanation="Blueprint for creating objects with methods and attributes."
+                  pythonCode={`# Basic class
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -692,28 +519,16 @@ class Counter:
     
     def __init__(self):
         self.value = 0  # instance attribute
-        Counter.count += 1`}</code>
-                </pre>
+        Counter.count += 1`}
+                  interviewTips="self is explicit; __init__ is constructor."
+                  commonPitfalls="Forgetting self parameter; confusing class/instance attributes."
+                  performance="Classes have overhead; use for complex data structures."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> self is explicit; __init__ is
-                  constructor.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Forgetting self parameter;
-                  confusing class/instance attributes.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Classes have overhead; use for
-                  complex data structures.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Inheritance</h4>
-                <p className="text-gray-300 mb-3">
-                  Creating subclasses that inherit and extend behavior.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Single inheritance
+                <SyntaxSection
+                  title="Inheritance"
+                  explanation="Creating subclasses that inherit and extend behavior."
+                  pythonCode={`# Single inheritance
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -744,28 +559,16 @@ c.method()  # "A" (MRO: Method Resolution Order)
 class Cat(Animal):
     def __init__(self, name, breed):
         super().__init__(name)
-        self.breed = breed`}</code>
-                </pre>
+        self.breed = breed`}
+                  interviewTips="Use super() for parent initialization; understand MRO."
+                  commonPitfalls="Diamond problem in multiple inheritance."
+                  performance="Inheritance has lookup overhead; prefer composition."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use super() for parent
-                  initialization; understand MRO.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Diamond problem in multiple
-                  inheritance.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Inheritance has lookup overhead;
-                  prefer composition.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Magic Methods</h4>
-                <p className="text-gray-300 mb-3">
-                  Special methods for operator overloading and object behavior.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`class Vector:
+                <SyntaxSection
+                  title="Magic Methods"
+                  explanation="Special methods for operator overloading and object behavior."
+                  pythonCode={`class Vector:
     def __init__(self, x, y):
         self.x, self.y = x, y
     
@@ -788,21 +591,11 @@ v1 = Vector(1, 2)
 v2 = Vector(3, 4)
 v3 = v1 + v2  # Vector(4, 6)
 print(v3)     # Vector(4, 6)
-len(v3)       # 2`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Implement __eq__ and __hash__
-                  together; __str__ vs __repr__.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Forgetting __hash__ when
-                  implementing __eq__.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Magic methods enable efficient
-                  operator use.
-                </p>
+len(v3)       # 2`}
+                  interviewTips="Implement __eq__ and __hash__ together; __str__ vs __repr__."
+                  commonPitfalls="Forgetting __hash__ when implementing __eq__."
+                  performance="Magic methods enable efficient operator use."
+                />
               </div>
 
               {/* Modules & Packages */}
@@ -811,12 +604,10 @@ len(v3)       # 2`}</code>
                   5. Modules & Packages
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">Import Statements</h4>
-                <p className="text-gray-300 mb-3">
-                  Loading code from other files and packages.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Import module
+                <SyntaxSection
+                  title="Import Statements"
+                  explanation="Loading code from other files and packages."
+                  pythonCode={`# Import module
 import math
 math.sqrt(16)  # 4.0
 
@@ -833,30 +624,16 @@ from math import *
 
 # Relative imports (in packages)
 from .utils import helper  # same package
-from ..data import loader  # parent package`}</code>
-                </pre>
+from ..data import loader  # parent package`}
+                  interviewTips="Use explicit imports; avoid wildcard imports."
+                  commonPitfalls="Circular imports; import order matters."
+                  performance="Imports are cached; first import is slower."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use explicit imports; avoid
-                  wildcard imports.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Circular imports; import
-                  order matters.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Imports are cached; first import
-                  is slower.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">
-                  __name__ and Main Guard
-                </h4>
-                <p className="text-gray-300 mb-3">
-                  Special variable for script vs module execution.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# In mymodule.py
+                <SyntaxSection
+                  title="__name__ and Main Guard"
+                  explanation="Special variable for script vs module execution."
+                  pythonCode={`# In mymodule.py
 print(__name__)  # "__main__" if run directly, "mymodule" if imported
 
 def main():
@@ -867,21 +644,11 @@ if __name__ == "__main__":
 
 # Usage
 # python mymodule.py -> runs main()
-# import mymodule -> doesn't run main()`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Always use if __name__ ==
-                  "__main__" for scripts.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Code runs on import without
-                  guard.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Guard prevents unnecessary
-                  execution on import.
-                </p>
+# import mymodule -> doesn't run main()`}
+                  interviewTips="Always use if __name__ == '__main__' for scripts."
+                  commonPitfalls="Code runs on import without guard."
+                  performance="Guard prevents unnecessary execution on import."
+                />
               </div>
 
               {/* File I/O & Exceptions */}
@@ -890,12 +657,10 @@ if __name__ == "__main__":
                   6. File I/O & Exceptions
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">File Operations</h4>
-                <p className="text-gray-300 mb-3">
-                  Reading from and writing to files.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Reading files
+                <SyntaxSection
+                  title="File Operations"
+                  explanation="Reading from and writing to files."
+                  pythonCode={`# Reading files
 with open('file.txt', 'r') as f:
     content = f.read()        # read all
     lines = f.readlines()     # read lines as list
@@ -916,28 +681,16 @@ f = open('file.txt')
 try:
     content = f.read()
 finally:
-    f.close()`}</code>
-                </pre>
+    f.close()`}
+                  interviewTips="Always use with statement; know read modes."
+                  commonPitfalls="Forgetting to close files; wrong encoding."
+                  performance="read() loads entire file; use readline() for large files."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Always use with statement;
-                  know read modes.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Forgetting to close files;
-                  wrong encoding.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> read() loads entire file; use
-                  readline() for large files.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Exception Handling</h4>
-                <p className="text-gray-300 mb-3">
-                  Handling runtime errors gracefully.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Basic try/except
+                <SyntaxSection
+                  title="Exception Handling"
+                  explanation="Handling runtime errors gracefully."
+                  pythonCode={`# Basic try/except
 try:
     result = 10 / 0
 except ZeroDivisionError:
@@ -967,21 +720,11 @@ if x < 0:
 
 # Custom exceptions
 class CustomError(Exception):
-    pass`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Catch specific exceptions;
-                  use finally for cleanup.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Bare except: catches
-                  everything including KeyboardInterrupt.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Exceptions are expensive; use
-                  for exceptional cases only.
-                </p>
+    pass`}
+                  interviewTips="Catch specific exceptions; use finally for cleanup."
+                  commonPitfalls="Bare except: catches everything including KeyboardInterrupt."
+                  performance="Exceptions are expensive; use for exceptional cases only."
+                />
               </div>
 
               {/* Advanced Features */}
@@ -990,12 +733,10 @@ class CustomError(Exception):
                   7. Advanced Features
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">Decorators</h4>
-                <p className="text-gray-300 mb-3">
-                  Functions that modify other functions.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Function decorator
+                <SyntaxSection
+                  title="Decorators"
+                  explanation="Functions that modify other functions."
+                  pythonCode={`# Function decorator
 def timer(func):
     def wrapper(*args, **kwargs):
         import time
@@ -1036,27 +777,16 @@ class MyClass:
     
     @classmethod
     def from_string(cls, s):
-        return cls(s)`}</code>
-                </pre>
+        return cls(s)`}
+                  interviewTips="Understand closure; common in frameworks."
+                  commonPitfalls="Forgetting functools.wraps for metadata."
+                  performance="Adds function call overhead."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Understand closure; common in
-                  frameworks.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Forgetting functools.wraps
-                  for metadata.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Adds function call overhead.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Generators</h4>
-                <p className="text-gray-300 mb-3">
-                  Functions that yield values lazily.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Generator function
+                <SyntaxSection
+                  title="Generators"
+                  explanation="Functions that yield values lazily."
+                  pythonCode={`# Generator function
 def fibonacci(n):
     a, b = 0, 1
     for _ in range(n):
@@ -1079,28 +809,16 @@ def read_large_file(filename):
 # Pipeline with generators
 data = (line for line in open('file.txt'))
 processed = (process(line) for line in data)
-filtered = (item for item in processed if condition(item))`}</code>
-                </pre>
+filtered = (item for item in processed if condition(item))`}
+                  interviewTips="Use for large datasets; itertools for combinations."
+                  commonPitfalls="Generators are exhausted after one use."
+                  performance="Memory efficient; faster startup than lists."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use for large datasets;
-                  itertools for combinations.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Generators are exhausted
-                  after one use.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Memory efficient; faster startup
-                  than lists.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Context Managers</h4>
-                <p className="text-gray-300 mb-3">
-                  Objects that manage resources with with statement.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Using context managers
+                <SyntaxSection
+                  title="Context Managers"
+                  explanation="Objects that manage resources with with statement."
+                  pythonCode={`# Using context managers
 with open('file.txt', 'r') as f:
     content = f.read()
 
@@ -1131,28 +849,16 @@ def temp_dir():
         shutil.rmtree(dir_path)
 
 with temp_dir() as tmp:
-    # use tmp directory`}</code>
-                </pre>
+    # use tmp directory`}
+                  interviewTips="Implement __enter__ and __exit__; use contextlib."
+                  commonPitfalls="Exceptions in __exit__ can mask original errors."
+                  performance="Ensures cleanup even with exceptions."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Implement __enter__ and
-                  __exit__; use contextlib.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Exceptions in __exit__ can
-                  mask original errors.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Ensures cleanup even with
-                  exceptions.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Type Hints</h4>
-                <p className="text-gray-300 mb-3">
-                  Optional static typing for better code clarity.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`from typing import List, Dict, Optional, Union
+                <SyntaxSection
+                  title="Type Hints"
+                  explanation="Optional static typing for better code clarity."
+                  pythonCode={`from typing import List, Dict, Optional, Union
 
 # Function type hints
 def greet(name: str) -> str:
@@ -1179,28 +885,16 @@ class Stack(Generic[T]):
 
 # Union types
 def add(x: Union[int, float], y: Union[int, float]) -> Union[int, float]:
-    return x + y`}</code>
-                </pre>
+    return x + y`}
+                  interviewTips="Use for complex functions; helps IDEs and documentation."
+                  commonPitfalls="Type hints don't enforce types at runtime."
+                  performance="Minimal runtime overhead; helps optimization."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use for complex functions;
-                  helps IDEs and documentation.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Type hints don't enforce
-                  types at runtime.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Minimal runtime overhead; helps
-                  optimization.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Dataclasses</h4>
-                <p className="text-gray-300 mb-3">
-                  Automatic class generation for data storage.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`from dataclasses import dataclass, field
+                <SyntaxSection
+                  title="Dataclasses"
+                  explanation="Automatic class generation for data storage."
+                  pythonCode={`from dataclasses import dataclass, field
 from typing import List
 
 @dataclass
@@ -1233,21 +927,11 @@ class ImmutablePoint:
     y: int
 
 point = ImmutablePoint(1, 2)
-point.x = 3  # FrozenInstanceError`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use for data containers;
-                  automatic __eq__, __repr__, etc.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Mutable defaults need
-                  default_factory.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Faster than regular classes for
-                  simple data structures.
-                </p>
+point.x = 3  # FrozenInstanceError`}
+                  interviewTips="Use for data containers; automatic __eq__, __repr__, etc."
+                  commonPitfalls="Mutable defaults need default_factory."
+                  performance="Faster than regular classes for simple data structures."
+                />
               </div>
 
               {/* Advanced Python Features */}
@@ -1256,12 +940,10 @@ point.x = 3  # FrozenInstanceError`}</code>
                   7. Advanced Python Features
                 </h3>
 
-                <h4 className="text-lg font-medium mb-2">Itertools Module</h4>
-                <p className="text-gray-300 mb-3">
-                  Powerful functions for efficient looping and combinations.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`import itertools
+                <SyntaxSection
+                  title="Itertools Module"
+                  explanation="Powerful functions for efficient looping and combinations."
+                  pythonCode={`import itertools
 
 # Infinite iterators
 count = itertools.count(10, 2)  # 10, 12, 14, ...
@@ -1292,29 +974,16 @@ chained = list(itertools.chain([1, 2], [3, 4], [5]))
 
 # Product (Cartesian product)
 product = list(itertools.product([1, 2], ['a', 'b']))
-# [(1,'a'), (1,'b'), (2,'a'), (2,'b')]`}</code>
-                </pre>
+# [(1,'a'), (1,'b'), (2,'a'), (2,'b')]`}
+                  interviewTips="Use for combinations/permutations; more memory efficient than nested loops."
+                  commonPitfalls="groupby requires sorted input; iterators are exhausted after use."
+                  performance="Lazy evaluation; better than manual nested loops."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use for
-                  combinations/permutations; more memory efficient than nested
-                  loops.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> groupby requires sorted
-                  input; iterators are exhausted after use.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Lazy evaluation; better than
-                  manual nested loops.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Collections Module</h4>
-                <p className="text-gray-300 mb-3">
-                  High-performance container datatypes.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`import collections
+                <SyntaxSection
+                  title="Collections Module"
+                  explanation="High-performance container datatypes."
+                  pythonCode={`import collections
 
 # Counter - frequency counting
 counter = collections.Counter(['a', 'b', 'a', 'c', 'b', 'a'])
@@ -1345,28 +1014,16 @@ p[0], p[1]  # 1, 2
 od = collections.OrderedDict()
 od['a'] = 1
 od['b'] = 2
-list(od.keys())  # ['a', 'b']`}</code>
-                </pre>
+list(od.keys())  # ['a', 'b']`}
+                  interviewTips="Counter for frequency; defaultdict avoids KeyError; deque for queues."
+                  commonPitfalls="defaultdict factory function called every time."
+                  performance="deque O(1) for append/pop from both ends."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Counter for frequency;
-                  defaultdict avoids KeyError; deque for queues.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> defaultdict factory function
-                  called every time.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> deque O(1) for append/pop from
-                  both ends.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Bisect Module</h4>
-                <p className="text-gray-300 mb-3">
-                  Binary search utilities for sorted lists.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`import bisect
+                <SyntaxSection
+                  title="Bisect Module"
+                  explanation="Binary search utilities for sorted lists."
+                  pythonCode={`import bisect
 
 # bisect_left - find insertion point for x
 arr = [1, 3, 5, 7, 9]
@@ -1390,27 +1047,16 @@ def bisect_custom(arr, x, key=lambda x: x):
             lo = mid + 1
         else:
             hi = mid
-    return lo`}</code>
-                </pre>
+    return lo`}
+                  interviewTips="Use for binary search problems; insort maintains sorted order."
+                  commonPitfalls="List must be sorted; bisect assumes ascending order."
+                  performance="O(log n) search time."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use for binary search
-                  problems; insort maintains sorted order.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> List must be sorted; bisect
-                  assumes ascending order.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> O(log n) search time.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Heapq Module</h4>
-                <p className="text-gray-300 mb-3">
-                  Min-heap priority queue implementation.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`import heapq
+                <SyntaxSection
+                  title="Heapq Module"
+                  explanation="Min-heap priority queue implementation."
+                  pythonCode={`import heapq
 
 # Basic heap operations
 heap = []
@@ -1441,27 +1087,16 @@ heapq.nlargest(3, numbers)  # [9, 5, 4]
 heapq.nsmallest(3, numbers)  # [1, 1, 2]
 
 # Merge sorted iterables
-list(heapq.merge([1, 3, 5], [2, 4, 6]))  # [1, 2, 3, 4, 5, 6]`}</code>
-                </pre>
+list(heapq.merge([1, 3, 5], [2, 4, 6]))  # [1, 2, 3, 4, 5, 6]`}
+                  interviewTips="Use for priority queues; heapify is O(n)."
+                  commonPitfalls="Only min-heap; use negatives for max-heap."
+                  performance="push/pop O(log n); heapify O(n)."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use for priority queues;
-                  heapify is O(n).
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Only min-heap; use negatives
-                  for max-heap.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> push/pop O(log n); heapify O(n).
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">Functools Module</h4>
-                <p className="text-gray-300 mb-3">
-                  Higher-order functions and operations on callable objects.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`import functools
+                <SyntaxSection
+                  title="Functools Module"
+                  explanation="Higher-order functions and operations on callable objects."
+                  pythonCode={`import functools
 
 # lru_cache - memoization decorator
 @functools.lru_cache(maxsize=None)
@@ -1505,30 +1140,16 @@ class Person:
     def __lt__(self, other):
         return self.age < other.age
     
-    # __le__, __gt__, __ge__ auto-generated`}</code>
-                </pre>
+    # __le__, __gt__, __ge__ auto-generated`}
+                  interviewTips="lru_cache for DP; partial for currying; cmp_to_key for custom sorting."
+                  commonPitfalls="lru_cache with unhashable arguments fails."
+                  performance="lru_cache can speed up recursive functions dramatically."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> lru_cache for DP; partial for
-                  currying; cmp_to_key for custom sorting.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> lru_cache with unhashable
-                  arguments fails.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> lru_cache can speed up recursive
-                  functions dramatically.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">
-                  Regular Expressions (re module)
-                </h4>
-                <p className="text-gray-300 mb-3">
-                  Pattern matching for strings.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`import re
+                <SyntaxSection
+                  title="Regular Expressions (re module)"
+                  explanation="Pattern matching for strings."
+                  pythonCode={`import re
 
 # Basic patterns
 pattern = r'\d+'  # one or more digits
@@ -1559,30 +1180,16 @@ re.findall(r'hello', 'Hello HELLO', re.IGNORECASE)  # ['Hello', 'HELLO']
 # Common patterns
 email_pattern = r'[\w\.-]+@[\w\.-]+\.\w+'
 phone_pattern = r'\(\d{3}\)\s*\d{3}-\d{4}'
-url_pattern = r'https?://(?:[-\w.])+(?:[:\d]+)?(?:/(?:[\w/_.])*(?:\?(?:[\w&=%.])*)?(?:#(?:\w*))?)?.*'`}</code>
-                </pre>
+url_pattern = r'https?://(?:[-\w.])+(?:[:\d]+)?(?:/(?:[\w/_.])*(?:\?(?:[\w&=%.])*)?(?:#(?:\w*))?)?.*`}
+                  interviewTips="Use raw strings (r'') for patterns; compile for repeated use."
+                  commonPitfalls="Greedy matching; forgetting word boundaries."
+                  performance="Compile patterns once; avoid .* when possible."
+                />
 
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Use raw strings (r'') for
-                  patterns; compile for repeated use.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> Greedy matching; forgetting
-                  word boundaries.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> Compile patterns once; avoid .*
-                  when possible.
-                </p>
-
-                <h4 className="text-lg font-medium mb-2">
-                  Python-Specific Patterns
-                </h4>
-                <p className="text-gray-300 mb-3">
-                  Unique Python features and idioms.
-                </p>
-                <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-                  <code className="text-green-400">{`# Walrus operator (:=) - Python 3.8+
+                <SyntaxSection
+                  title="Python-Specific Patterns"
+                  explanation="Unique Python features and idioms."
+                  pythonCode={`# Walrus operator (:=) - Python 3.8+
 if (n := len(data)) > 0:
     print(f"Data has {n} items")
 
@@ -1626,21 +1233,11 @@ age = 30
 print(f"{name:>10}")    # right-align
 print(f"{age:04d}")     # zero-pad
 print(f"{3.14159:.2f}") # precision
-print(f"{1000:,}")      # comma separator`}</code>
-                </pre>
-
-                <p className="text-gray-300 mb-2">
-                  <strong>Interview Tips:</strong> Walrus operator reduces code;
-                  match-case for complex conditions.
-                </p>
-                <p className="text-gray-300 mb-2">
-                  <strong>Common Pitfalls:</strong> nonlocal vs global
-                  confusion; async requires event loop.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  <strong>Performance:</strong> F-strings faster than %
-                  formatting or .format().
-                </p>
+print(f"{1000:,}")      # comma separator`}
+                  interviewTips="Walrus operator reduces code; match-case for complex conditions."
+                  commonPitfalls="nonlocal vs global confusion; async requires event loop."
+                  performance="F-strings faster than % formatting or .format()."
+                />
               </div>
             </div>
           </section>
@@ -1662,11 +1259,10 @@ print(f"{1000:,}")      # comma separator`}</code>
               1. Basic Syntax & Data Types
             </h3>
 
-            <h4 className="text-lg font-semibold mb-4">
-              Variables & Assignment
-            </h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# Variables - no declaration needed
+            <SyntaxSection
+              title="Variables & Assignment"
+              explanation="Variable declaration and assignment in C++."
+              pythonCode={`# Variables - no declaration needed
 x = 5
 name = "Alice"
 is_valid = True
@@ -1675,12 +1271,13 @@ is_valid = True
 a, b, c = 1, 2, 3
 x = y = z = 0  # All point to same object
 
-# Interview tip: Use descriptive names, avoid single letters except in loops`}</code>
-            </pre>
+# Interview tip: Use descriptive names, avoid single letters except in loops`}
+            />
 
-            <h4 className="text-lg font-semibold mb-4">Data Types</h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# Numbers
+            <SyntaxSection
+              title="Data Types"
+              explanation="Basic data types in C++."
+              pythonCode={`# Numbers
 int_num = 42
 float_num = 3.14
 complex_num = 2 + 3j
@@ -1710,24 +1307,19 @@ my_set = {1, 2, 3, 3}  # {1, 2, 3}
 
 # Booleans
 truthy = True
-falsy = False`}</code>
-            </pre>
-
-            <p className="text-gray-300 mb-6">
-              <strong>Interview Tips:</strong> Python is dynamically typed but
-              understand type implications. Lists are arrays, dicts are hash
-              tables. Know time complexities: list access O(1), insert/delete
-              O(n), dict operations O(1) average.
-            </p>
+falsy = False`}
+              interviewTips="Python is dynamically typed but understand type implications. Lists are arrays, dicts are hash tables. Know time complexities: list access O(1), insert/delete O(n), dict operations O(1) average."
+            />
 
             {/* Control Structures */}
             <h3 className="text-xl font-bold mb-6 text-green-400">
               2. Control Structures
             </h3>
 
-            <h4 className="text-lg font-semibold mb-4">Conditionals</h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# if/elif/else
+            <SyntaxSection
+              title="Conditionals"
+              explanation="Conditional statements in C++."
+              pythonCode={`# if/elif/else
 if x > 0:
     print("positive")
 elif x < 0:
@@ -1744,12 +1336,13 @@ if my_list:  # Empty list is falsy
 
 # Common pitfall: Don't use == for None, use 'is'
 if my_var is None:
-    print("is None")`}</code>
-            </pre>
+    print("is None")`}
+            />
 
-            <h4 className="text-lg font-semibold mb-4">Loops</h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# for loops
+            <SyntaxSection
+              title="Loops"
+              explanation="Loop constructs in C++."
+              pythonCode={`# for loops
 for i in range(5):  # 0 to 4
     print(i)
 
@@ -1775,15 +1368,9 @@ matrix = [[i*j for j in range(3)] for i in range(3)]
 
 # Dict/set comprehensions
 squared_dict = {x: x**2 for x in range(5)}
-unique_lengths = {len(word) for word in words}`}</code>
-            </pre>
-
-            <p className="text-gray-300 mb-6">
-              <strong>Interview Tips:</strong> Prefer list comprehensions for
-              readability. Use enumerate() instead of manual indexing. Remember:
-              for loops are foreach, use while for conditions. Comprehensions
-              are faster than loops for simple operations.
-            </p>
+unique_lengths = {len(word) for word in words}`}
+              interviewTips="Prefer list comprehensions for readability. Use enumerate() instead of manual indexing. Remember: for loops are foreach, use while for conditions. Comprehensions are faster than loops for simple operations."
+            />
 
             {/* Functions */}
             <h3 className="text-xl font-bold mb-6 text-green-400">
@@ -2741,12 +2328,10 @@ int main() {
             {/* Trees */}
             <h3 className="text-xl font-bold mb-6 text-purple-400">2. Trees</h3>
 
-            <h4 className="text-lg font-semibold mb-4">
-              Binary Search Tree (BST)
-            </h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# Python: BST Implementation
-class TreeNode:
+            <SyntaxSection
+              title="Binary Search Tree (BST)"
+              explanation="Ordered binary tree with O(log n) operations."
+              pythonCode={`class TreeNode:
     def __init__(self, val=0):
         self.val = val
         self.left = None
@@ -2816,13 +2401,8 @@ class BST:
         current = node
         while current.left:
             current = current.left
-        return current
-
-# C++: BST Implementation
-#include <iostream>
-using namespace std;
-
-struct TreeNode {
+        return current`}
+              cppCode={`struct TreeNode {
     int val;
     TreeNode* left;
     TreeNode* right;
@@ -2908,19 +2488,16 @@ int main() {
     bst.deleteVal(30);
     cout << bst.search(30) << endl;  // 0
     return 0;
-}`}</code>
-            </pre>
+}`}
+              interviewTips="Know inorder traversal gives sorted order; balance for O(log n)."
+              commonPitfalls="Unbalanced trees become O(n); handle deletion carefully."
+              performance="Insert/Search/Delete: O(log n) average, O(n) worst case."
+            />
 
-            <h4 className="text-lg font-semibold mb-4">Tree Traversals</h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# Python: Tree Traversals
-class TreeNode:
-    def __init__(self, val=0):
-        self.val = val
-        self.left = None
-        self.right = None
-
-def inorder(root):
+            <SyntaxSection
+              title="Tree Traversals"
+              explanation="DFS (inorder, preorder, postorder) and BFS (level order) traversals."
+              pythonCode={`def inorder(root):
     if root:
         inorder(root.left)
         print(root.val, end=' ')
@@ -2948,21 +2525,8 @@ def level_order(root):
         if node.left:
             queue.append(node.left)
         if node.right:
-            queue.append(node.right)
-
-# C++: Tree Traversals
-#include <iostream>
-#include <queue>
-using namespace std;
-
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
-
-void inorder(TreeNode* root) {
+            queue.append(node.right)`}
+              cppCode={`void inorder(TreeNode* root) {
     if (root) {
         inorder(root->left);
         cout << root->val << " ";
@@ -3015,21 +2579,16 @@ int main() {
     cout << endl;
     
     return 0;
-}`}</code>
-            </pre>
+}`}
+              interviewTips="Inorder gives sorted order for BST; level order uses queue."
+              commonPitfalls="Recursive stack overflow for deep trees; iterative preferred."
+              performance="All traversals: O(n) time, O(h) space (h=height)."
+            />
 
-            <h4 className="text-lg font-semibold mb-4">
-              Binary Tree Maximum Path Sum
-            </h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# Python: Binary Tree Maximum Path Sum
-class TreeNode:
-    def __init__(self, val=0):
-        self.val = val
-        self.left = None
-        self.right = None
-
-class Solution:
+            <SyntaxSection
+              title="Binary Tree Maximum Path Sum"
+              explanation="Find maximum path sum in binary tree (any node to any node)."
+              pythonCode={`class Solution:
     def maxPathSum(self, root):
         self.max_sum = float('-inf')
         
@@ -3046,22 +2605,8 @@ class Solution:
             return node.val + max(left, right)
         
         dfs(root)
-        return self.max_sum
-
-# C++: Binary Tree Maximum Path Sum
-#include <iostream>
-#include <algorithm>
-#include <climits>
-using namespace std;
-
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
-
-class Solution {
+        return self.max_sum`}
+              cppCode={`class Solution {
 private:
     int max_sum = INT_MIN;
     
@@ -3093,22 +2638,21 @@ int main() {
     cout << sol.maxPathSum(root) << endl;
     
     return 0;
-}`}</code>
-            </pre>
+}`}
+              interviewTips="Path can start/end at any node; use DFS with global max."
+              commonPitfalls="Forgetting max(0, child_sum) for negative nodes."
+              performance="O(n) time, O(h) space (h=height)."
+            />
 
             {/* Graphs */}
             <h3 className="text-xl font-bold mb-6 text-purple-400">
               3. Graphs
             </h3>
 
-            <h4 className="text-lg font-semibold mb-4">
-              Graph Representations
-            </h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# Python: Graph Representations
-from collections import defaultdict, deque
-
-# Adjacency List
+            <SyntaxSection
+              title="Graph Representations"
+              explanation="Adjacency list (space-efficient) vs adjacency matrix (fast lookups)."
+              pythonCode={`# Adjacency List
 class Graph:
     def __init__(self):
         self.graph = defaultdict(list)
@@ -3133,15 +2677,8 @@ class GraphMatrix:
     
     def print_matrix(self):
         for row in self.matrix:
-            print(row)
-
-# C++: Graph Representations
-#include <iostream>
-#include <vector>
-#include <list>
-using namespace std;
-
-// Adjacency List
+            print(row)`}
+              cppCode={`// Adjacency List
 class Graph {
 private:
     int vertices;
@@ -3205,15 +2742,16 @@ int main() {
     g.printGraph();
     
     return 0;
-}`}</code>
-            </pre>
+}`}
+              interviewTips="Use adjacency list for sparse graphs; matrix for dense/complete graphs."
+              commonPitfalls="Matrix uses O(V²) space; list is O(V+E)."
+              performance="List: O(1) degree check; Matrix: O(1) edge check."
+            />
 
-            <h4 className="text-lg font-semibold mb-4">DFS & BFS</h4>
-            <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-              <code className="text-green-300">{`# Python: DFS & BFS
-from collections import defaultdict, deque
-
-class Graph:
+            <SyntaxSection
+              title="DFS & BFS"
+              explanation="Depth-first (stack/recursive) vs breadth-first (queue) graph traversal."
+              pythonCode={`class Graph:
     def __init__(self):
         self.graph = defaultdict(list)
     
@@ -3255,18 +2793,8 @@ def dfs_recursive(graph, node, visited):
     
     for neighbor in graph[node]:
         if neighbor not in visited:
-            dfs_recursive(graph, neighbor, visited)
-
-# C++: DFS & BFS
-#include <iostream>
-#include <vector>
-#include <list>
-#include <stack>
-#include <queue>
-#include <unordered_set>
-using namespace std;
-
-class Graph {
+            dfs_recursive(graph, neighbor, visited)`}
+              cppCode={`class Graph {
 private:
     int vertices;
     vector<list<int>> adj_list;
@@ -3358,8 +2886,11 @@ int main() {
     cout << endl;
     
     return 0;
-}`}</code>
-            </pre>
+}`}
+              interviewTips="DFS for topological sort/connectivity; BFS for shortest path in unweighted graphs."
+              commonPitfalls="DFS recursion depth limit; BFS needs queue."
+              performance="Both O(V+E); DFS uses stack space O(V), BFS uses queue O(V)."
+            />
 
             <h4 className="text-lg font-semibold mb-4">Topological Sort</h4>
             <pre className="bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
