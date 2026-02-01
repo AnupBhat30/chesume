@@ -66,6 +66,15 @@ const blogParts = [
     href: "/blog/syntax-guide",
   },
   {
+    id: 8,
+    title: "OOP, Database & System Design Mastery",
+    description:
+      "Complete guide to object-oriented programming, database theory, and distributed system architecture for technical interviews.",
+    tag: "Advanced",
+    color: "purple",
+    href: "/blog/OA",
+  },
+  {
     id: 9,
     title: "Entry-Level Interview Answers: 200+ Questions",
     description:
@@ -73,6 +82,15 @@ const blogParts = [
     tag: "Interview Prep",
     color: "green",
     href: "/blog/entry-level-interview-answers",
+  },
+  {
+    id: 10,
+    title: "25 Must-Know Interview Puzzles",
+    description:
+      "Critical thinking puzzles for tech interviews. Master lateral thinking and problem-solving processes used by Google, Microsoft, and quant firms.",
+    tag: "Puzzles",
+    color: "blue",
+    href: "/blog/puzzles",
   },
 ];
 
