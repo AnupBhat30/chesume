@@ -92,6 +92,24 @@ const blogParts = [
     color: "blue",
     href: "/blog/puzzles",
   },
+  {
+    id: 11,
+    title: "100 QA Interview Questions: Complete Guide",
+    description:
+      "Comprehensive QA fresher interview preparation with 100 detailed questions covering fundamentals, testing types, automation, and management. Includes exact answer framework.",
+    tag: "QA Interview Prep",
+    color: "orange",
+    href: "/blog/qa-interview-questions-complete-guide",
+  },
+  {
+    id: 12,
+    title: "QA Interview Questions & Answers",
+    description:
+      "Complete QA interview preparation guide with 100 detailed questions covering testing fundamentals, automation, tools, and real-world scenarios with practical examples.",
+    tag: "QA Interview Prep",
+    color: "green",
+    href: "/blog/qa-interview-questions",
+  },
 ];
 
 export default function BlogIndex() {
